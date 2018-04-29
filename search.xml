@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>summary</title>
+      <link href="/2018/04/26/summary/"/>
+      <url>/2018/04/26/summary/</url>
+      <content type="html"><![CDATA[<p><strong><em>第一部分 git的基本使用</em></strong><br>1.git教程<br>网址：(<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/</a>)<br>2.具体内容：<br>（1）Windows上安装git<br>（2）创建版本库<br>（3）版本回退<br>（4）工作区和暂存区<br>（5）管理修改<br>（6）撤销删除<br>（7）删除文件<br>（8）建远程仓库，把本地仓库与远程仓库连接起来</p><p><strong><em>第二部分 github的基础使用</em></strong><br>github的具体操作还未熟悉，只是了解一点简单的远程仓库的概念，看了一些身边同学的gtihub账号</p><p><strong><em>第三部分 使用hexo+github搭建属于自己的博客</em></strong><br>这个搭建完全是按照网上的3步骤一步一步做的<br>网址：(<a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">https://www.jianshu.com/p/465830080ea9</a>)</p><p><strong><em>第四部分 PS</em></strong><br>我们前端组组长在昨天的值班时给我们讲了一些ps在前端里经常用到的一些功能，自己也准备在接下来的时间里自学一些ps的操作</p><p><strong><em>今晚有点仓促，在做上面这些东西时遇到的文体与解决方法我会在接下来的五一假期里具体列出</em></strong></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 第一次总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>first</title>
+      <link href="/2018/04/18/first/"/>
+      <url>/2018/04/18/first/</url>
+      <content type="html"><![CDATA[<p>第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 就是试试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/04/15/hello-world/"/>
+      <url>/2018/04/15/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+    </entry>
+    
+  
+  
+</search>
