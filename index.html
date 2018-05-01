@@ -298,11 +298,61 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong><em>第一部分 git的基本使用</em></strong><br>1.git教程<br>网址：(<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/</a>)<br>2.具体内容：<br>（1）Windows上安装git<br>（2）创建版本库<br>（3）版本回退<br>（4）工作区和暂存区<br>（5）管理修改<br>（6）撤销删除<br>（7）删除文件<br>（8）建远程仓库，把本地仓库与远程仓库连接起来</p>
+        <h1 id="大概总结"><a href="#大概总结" class="headerlink" title="大概总结"></a>大概总结</h1><p><strong><em>第一部分 git的基本使用</em></strong><br>1.git教程<br>网址：(<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/</a>)<br>2.具体内容：<br>（1）Windows上安装git<br>（2）创建版本库<br>（3）版本回退<br>（4）工作区和暂存区<br>（5）管理修改<br>（6）撤销删除<br>（7）删除文件<br>（8）建远程仓库，把本地仓库与远程仓库连接起来</p>
 <p><strong><em>第二部分 github的基础使用</em></strong><br>github的具体操作还未熟悉，只是了解一点简单的远程仓库的概念，看了一些身边同学的gtihub账号</p>
 <p><strong><em>第三部分 使用hexo+github搭建属于自己的博客</em></strong><br>这个搭建完全是按照网上的3步骤一步一步做的<br>网址：(<a href="https://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">https://www.jianshu.com/p/465830080ea9</a>)</p>
 <p><strong><em>第四部分 PS</em></strong><br>我们前端组组长在昨天的值班时给我们讲了一些ps在前端里经常用到的一些功能，自己也准备在接下来的时间里自学一些ps的操作</p>
 <p><strong><em>今晚有点仓促，在做上面这些东西时遇到的文体与解决方法我会在接下来的五一假期里具体列出</em></strong></p>
+<h1 id="git的基本使用"><a href="#git的基本使用" class="headerlink" title="git的基本使用"></a>git的基本使用</h1><h2 id="windows上安装git"><a href="#windows上安装git" class="headerlink" title="windows上安装git"></a>windows上安装git</h2><ol>
+<li><a href="https://git-scm.com/downloads" title="git下载" target="_blank" rel="noopener">git下载</a></li>
+<li>安装完成后，在开始菜单里找到git bash，若出现下面图片一样的内容，说明安装成功</li>
+<li><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907073134ef6feff559cf4ce3a2c5c588d2831c0a000/0" alt="安装成功后" title="安装成功后"></li>
+<li>然后在命令行输入代码 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"eamil@example.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="创建一个版本库repository"><a href="#创建一个版本库repository" class="headerlink" title="创建一个版本库repository"></a>创建一个版本库repository</h2><ol>
+<li><p>首先要注意你要把版本库建在哪里，就在哪个文件下打开git bash：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir newre</span><br><span class="line">$ <span class="built_in">cd</span> newre</span><br><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">显示所建版本库的位置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后通过git init把这个目录变成git可以管理的仓库：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>此时你就会发现该目录下回出现一个 .git 的目录，这就是用来跟踪管理版本库的，如果没有看到，可以打开隐藏文件就可以看到了</p>
+</li>
+</ol>
+<p>下面开始尝试王版本库里写文件</p>
+<ol start="4">
+<li>在learngit文件夹下新建一个txt文档，例如:new.txt,并写入内容</li>
+<li><p>用命令把该文档添加到仓库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add new.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用命令告诉git，把文件交到仓库：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"备注此次变动，以便自己以后更清楚每次改动"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ol>
+<li>git status查看当前仓库状态</li>
+<li>git diff查看不同，可以看出我们对文档做的修改</li>
+<li>修改后把它再一次提交到仓库 git add new.txt；然后可以通过git status查看要被提交的文档所做的修改，然后git commit -m “….”提交。</li>
+<li>git log 可以查看该文件坐了什么修改</li>
+<li>回退到当前的上一版本 git reset –hard HEAD^;然后可以用cat new.txt查看当前文件内容；git reset–hard “commit id”也可以回到未来某一版本，commit id 要在可以在前面的git status里查看</li>
+<li>git reflog可以查看记录的你的每一次命令<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2></li>
+<li>图1：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt="示意图"></li>
+<li>再git add 一个文本文件<br>图2：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907720458e56751df1c474485b697575073c40ae9000/0" alt="示意图"><br>所以，git add命令实际上就是把所要提交的文件放在了暂存区(Stage)，然后，执行git commit 就可以一次性把暂存区的所有修改提交到分支。</li>
+<li>git commit后版本库就变成了这样，暂存区就没有任何内容了<br>图3；<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000/0" alt="示意图"><h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2></li>
+<li>git管理的是修改不是文件<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2></li>
+<li>当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<br>git checkout – file</li>
+<li>当你不仅改乱了工作区某个文件的内容，还添加到了暂存区时，想要丢弃修改，分两步，git reset HEAD file，会带第一种情况，然后按第一种情况处理</li>
+<li>已将提交了不合适的修改到版本库，想要撤销本次提交，就要版本回退，前提是没有推送到远程库。<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2></li>
+<li>一般可以直接从文件管理器中把没用的文件删了，或者用rm命令删了 $ rm file,这个时候工作区和版本库就不一样了，git status会告诉你哪些文件被删了。</li>
+<li><p>如果要从版本库也删除，则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(假设此前新建了一个test.txt文本文件）</span><br><span class="line"></span><br><span class="line">$ git rm test.txt</span><br><span class="line">rm <span class="string">'tesrt.txt'</span></span><br><span class="line">$ git commit -m <span class="string">"备注"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果删错了，天文版本库还有，所以可以轻松的恢复最新版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- test.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>git checkout 其实就是用版本库里的版本替换工作区的版本，无论工作区是删除还是修改，都可以一键还原。</p>
 
       
     </div>
