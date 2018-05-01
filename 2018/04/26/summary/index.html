@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0">
 <meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907720458e56751df1c474485b697575073c40ae9000/0">
 <meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000/0">
-<meta property="og:updated_time" content="2018-05-01T03:29:03.765Z">
+<meta property="og:updated_time" content="2018-05-01T03:33:46.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="summary">
 <meta name="twitter:description" content="大概总结第一部分 git的基本使用1.git教程网址：(https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)2.具体内容：（1）Windows上安装git（2）创建版本库（3）版本回退（4）工作区和暂存区（5）管理修改（6）撤销删除（7）删除文件（8）建远程仓库，把本地仓库与远程仓">
@@ -350,14 +350,22 @@
 <li>修改后把它再一次提交到仓库 git add new.txt；然后可以通过git status查看要被提交的文档所做的修改，然后git commit -m “….”提交。</li>
 <li>git log 可以查看该文件坐了什么修改</li>
 <li>回退到当前的上一版本 git reset –hard HEAD^;然后可以用cat new.txt查看当前文件内容；git reset–hard “commit id”也可以回到未来某一版本，commit id 要在可以在前面的git status里查看</li>
-<li>git reflog可以查看记录的你的每一次命令<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2></li>
+<li>git reflog可以查看记录的你的每一次命令。</li>
+</ol>
+<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2><ol>
 <li>图1：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt="示意图"></li>
 <li>再git add 一个文本文件<br>图2：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384907720458e56751df1c474485b697575073c40ae9000/0" alt="示意图"><br>所以，git add命令实际上就是把所要提交的文件放在了暂存区(Stage)，然后，执行git commit 就可以一次性把暂存区的所有修改提交到分支。</li>
-<li>git commit后版本库就变成了这样，暂存区就没有任何内容了<br>图3；<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000/0" alt="示意图"><h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2></li>
-<li>git管理的是修改不是文件<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2></li>
+<li>git commit后版本库就变成了这样，暂存区就没有任何内容了<br>图3；<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000/0" alt="示意图">。</li>
+</ol>
+<h2 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h2><ol>
+<li>git管理的是修改不是文件。</li>
+</ol>
+<h2 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h2><ol>
 <li>当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<br>git checkout – file</li>
 <li>当你不仅改乱了工作区某个文件的内容，还添加到了暂存区时，想要丢弃修改，分两步，git reset HEAD file，会带第一种情况，然后按第一种情况处理</li>
-<li>已将提交了不合适的修改到版本库，想要撤销本次提交，就要版本回退，前提是没有推送到远程库。<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2></li>
+<li>已将提交了不合适的修改到版本库，想要撤销本次提交，就要版本回退，前提是没有推送到远程库。</li>
+</ol>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ol>
 <li>一般可以直接从文件管理器中把没用的文件删了，或者用rm命令删了 $ rm file,这个时候工作区和版本库就不一样了，git status会告诉你哪些文件被删了。</li>
 <li><p>如果要从版本库也删除，则</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(假设此前新建了一个test.txt文本文件）</span><br><span class="line"></span><br><span class="line">$ git rm test.txt</span><br><span class="line">rm <span class="string">'tesrt.txt'</span></span><br><span class="line">$ git commit -m <span class="string">"备注"</span></span><br></pre></td></tr></table></figure>
