@@ -361,6 +361,15 @@
 </li>
 </ol>
 <p>git checkout 其实就是用版本库里的版本替换工作区的版本，无论工作区是删除还是修改，都可以一键还原。</p>
+<h2 id="创建远程库"><a href="#创建远程库" class="headerlink" title="创建远程库"></a>创建远程库</h2><p>1.创建SSH KEY<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
+<p>（一路回车，如果不出什么问题）<br>然后在用户主目录下会生成一个.ssh文件夹，里面会有私钥id_rsa和公钥id_rsa.pub两个文件<br>2.登录github账号<br><img src=".ssh_key.png" alt="添加公钥">在上图处添加公钥</p>
+<h2 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h2><p>1.如何把本地库与github上的远程库连接起来？（让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作，真是一举多得。）<br>2.先在github上建立一个仓库<br>3.在本地库下打开git bash输入下面代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:dong973711/learngit.git</span><br></pre></td></tr></table></figure></p>
+<p>4.添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。</p>
+<p>下一步，就可以把本地库的所有内容推送到远程库上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程<br>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>从现在起，只要本地作了提交，就可以通过命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>推送到github仓库</p>
+<h1 id="github的使用"><a href="#github的使用" class="headerlink" title="github的使用"></a>github的使用</h1><h2 id="注册一个github账号"><a href="#注册一个github账号" class="headerlink" title="注册一个github账号"></a>注册一个github账号</h2><p>1.点击进入github网址(<a href="https://github.com/github)然后根据步骤注册一个账号，很简单的。" target="_blank" rel="noopener">https://github.com/github)然后根据步骤注册一个账号，很简单的。</a></p>
 
       
     </div>
