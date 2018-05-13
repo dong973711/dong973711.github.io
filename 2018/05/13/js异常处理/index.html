@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="description" content="我们一直在学JS，它如何处理异常的呢，在这里总结一下(其实也就是在网上看了一遍教程)。 try 语句测试代码块的错误。catch 语句处理错误。throw 语句创建自定义错误。 错误一定会发生当 JavaScript 引擎执行 JavaScript 代码时，会发生各种错误：可能是语法错误，通常是程序员造成的编码错误或错别字。可能是拼写错误或语言中缺少的功能（可能由于浏览器差异）。可能是由于来自服务">
 <meta name="keywords" content="donghu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
-<meta property="og:url" content="http://dong973711.github.io/2018/04/18/first/index.html">
+<meta property="og:title" content="js异常处理">
+<meta property="og:url" content="http://dong973711.github.io/2018/05/13/js异常处理/index.html">
 <meta property="og:site_name" content="一粒沙">
-<meta property="og:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta property="og:description" content="我们一直在学JS，它如何处理异常的呢，在这里总结一下(其实也就是在网上看了一遍教程)。 try 语句测试代码块的错误。catch 语句处理错误。throw 语句创建自定义错误。 错误一定会发生当 JavaScript 引擎执行 JavaScript 代码时，会发生各种错误：可能是语法错误，通常是程序员造成的编码错误或错别字。可能是拼写错误或语言中缺少的功能（可能由于浏览器差异）。可能是由于来自服务">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T04:02:49.802Z">
+<meta property="og:image" content="http://dong973711.github.io/img/2018-05-13_211336.png">
+<meta property="og:updated_time" content="2018-05-13T13:19:37.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first">
-<meta name="twitter:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="twitter:title" content="js异常处理">
+<meta name="twitter:description" content="我们一直在学JS，它如何处理异常的呢，在这里总结一下(其实也就是在网上看了一遍教程)。 try 语句测试代码块的错误。catch 语句处理错误。throw 语句创建自定义错误。 错误一定会发生当 JavaScript 引擎执行 JavaScript 代码时，会发生各种错误：可能是语法错误，通常是程序员造成的编码错误或错别字。可能是拼写错误或语言中缺少的功能（可能由于浏览器差异）。可能是由于来自服务">
+<meta name="twitter:image" content="http://dong973711.github.io/img/2018-05-13_211336.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>first | 一粒沙</title>
+<title>js异常处理 | 一粒沙</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-js异常处理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/first/" class="article-date">
-      <time datetime="2018-04-18T13:43:36.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2018/05/13/js异常处理/" class="article-date">
+      <time datetime="2018-05-13T12:51:39.000Z" itemprop="datePublished">2018-05-13</time>
 </a>
 
 
@@ -286,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      first
+      js异常处理
     </h1>
   
 
@@ -303,7 +305,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的</p>
+        <p>我们一直在学JS，它如何处理异常的呢，在这里总结一下(其实也就是在网上看了一遍教程)。</p>
+<p>try 语句测试代码块的错误。<br>catch 语句处理错误。<br>throw 语句创建自定义错误。</p>
+<h1 id="错误一定会发生"><a href="#错误一定会发生" class="headerlink" title="错误一定会发生"></a>错误一定会发生</h1><p>当 JavaScript 引擎执行 JavaScript 代码时，会发生各种错误：<br>可能是语法错误，通常是程序员造成的编码错误或错别字。<br>可能是拼写错误或语言中缺少的功能（可能由于浏览器差异）。<br>可能是由于来自服务器或用户的错误输出而导致的错误。<br>当然，也可能是由于许多其他不可预知的因素。</p>
+<h1 id="JavaScript-抛出错误"><a href="#JavaScript-抛出错误" class="headerlink" title="JavaScript 抛出错误"></a>JavaScript 抛出错误</h1><p>当错误发生时，当事情出问题时，JavaScript 引擎通常会停止，并生成一个错误消息。<br>描述这种情况的技术术语是：<strong><em> JavaScript 将抛出一个错误 </em></strong></p>
+<h1 id="JavaScript-测试和捕捉"><a href="#JavaScript-测试和捕捉" class="headerlink" title="JavaScript 测试和捕捉"></a>JavaScript 测试和捕捉</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try</span><br><span class="line">&#123;</span><br><span class="line">  // 这里运行代码</span><br><span class="line">&#125;</span><br><span class="line">catch（err）</span><br><span class="line">&#123;</span><br><span class="line">  // 这里处理错误</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="创建或抛出异常throw语句"><a href="#创建或抛出异常throw语句" class="headerlink" title="创建或抛出异常throw语句"></a>创建或抛出异常throw语句</h1><p>throw<strong><em>就是允许我们创建自定义错误</em></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">throw exception</span><br></pre></td></tr></table></figure></p>
+<h1 id="综合例子"><a href="#综合例子" class="headerlink" title="综合例子"></a>综合例子</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">myFunction</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">        try&#123;</span><br><span class="line">            var x = document.getElementById(<span class="string">"demo"</span>).value;</span><br><span class="line">            <span class="keyword">if</span> (x==<span class="string">""</span>) throw <span class="string">"值为空"</span>;</span><br><span class="line">            <span class="keyword">if</span> (isNaN(x)) throw <span class="string">"不是数字"</span>;</span><br><span class="line">            <span class="keyword">if</span> (x&gt;10) throw <span class="string">"太大"</span>;</span><br><span class="line">            <span class="keyword">if</span> (x&lt;5) throw  <span class="string">"太小"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (err) &#123;</span><br><span class="line">            var y=document.getElementById(<span class="string">"mess"</span>);</span><br><span class="line">            y.innerText=<span class="string">"错误："</span>+err+<span class="string">"。"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;h1&gt;使用throw语句抛出异常&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;请输入5--10之间的数字&lt;/p&gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"demo"</span> &gt;</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">"button"</span> onclick=<span class="string">"myFunction()"</span> value=<span class="string">"测试输入值"</span>&gt;</span><br><span class="line">&lt;p id=<span class="string">"mess"</span>&gt;&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>样例图片<br><img src="/img/2018-05-13_211336.png" alt="效果图"></p>
 
       
     </div>
@@ -315,16 +324,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/04/26/summary/">
-                    summary
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/04/15/hello-world/">
-                    Hello World
+                <a href="/2018/05/08/js实现的一点效果/">
+                    js实现的一点效果
                 </a>
             </div>
         
@@ -336,7 +339,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#错误一定会发生"><span class="toc-number">1.</span> <span class="toc-text">错误一定会发生</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-抛出错误"><span class="toc-number">2.</span> <span class="toc-text">JavaScript 抛出错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-测试和捕捉"><span class="toc-number">3.</span> <span class="toc-text">JavaScript 测试和捕捉</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建或抛出异常throw语句"><span class="toc-number">4.</span> <span class="toc-text">创建或抛出异常throw语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#综合例子"><span class="toc-number">5.</span> <span class="toc-text">综合例子</span></a></li></ol>
         
     </div>
     <style>
@@ -372,7 +375,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"first　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"js异常处理　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -408,15 +411,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/04/26/summary/" title="上一篇: summary">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/15/hello-world/" title="下一篇: Hello World">
+            <a href="/2018/05/08/js实现的一点效果/" title="下一篇: js实现的一点效果">
                 <i class="fa fa-angle-right"></i>
             </a>
         
