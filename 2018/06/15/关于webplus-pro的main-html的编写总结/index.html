@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="D" />
+
+
+
+<meta name="description" content="突然发现离上次写博客已经大半个月了，好难过，没有做到规定时间内的总结。其实也还好吧，这东西，慢慢总结吧，日子总也是一天一天过的，想多了也没用。 上期计划完成情况上次我说正在模仿写新浪页面，写了一半，发现还是有些地方自己还是没法实现，唉，连模仿写一个页面都写不出来，我滴心啊，拔凉拔凉？嗯，确实有那么点。这个先不说了。生气JavaScript dom 编程艺术，这本书还确实是看了，对DOM的运用确实提">
+<meta name="keywords" content="donghu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记自己关于webplus pro的main.html的第一次">
+<meta property="og:url" content="http://dong973711.github.io/2018/06/15/关于webplus-pro的main-html的编写总结/index.html">
+<meta property="og:site_name" content="一粒沙">
+<meta property="og:description" content="突然发现离上次写博客已经大半个月了，好难过，没有做到规定时间内的总结。其实也还好吧，这东西，慢慢总结吧，日子总也是一天一天过的，想多了也没用。 上期计划完成情况上次我说正在模仿写新浪页面，写了一半，发现还是有些地方自己还是没法实现，唉，连模仿写一个页面都写不出来，我滴心啊，拔凉拔凉？嗯，确实有那么点。这个先不说了。生气JavaScript dom 编程艺术，这本书还确实是看了，对DOM的运用确实提">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://dong973711.github.io/img/xgc.png">
+<meta property="og:image" content="http://dong973711.github.io/img/xgc2.png">
+<meta property="og:image" content="http://dong973711.github.io/img/xgc1.png">
+<meta property="og:updated_time" content="2018-06-16T04:58:42.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记自己关于webplus pro的main.html的第一次">
+<meta name="twitter:description" content="突然发现离上次写博客已经大半个月了，好难过，没有做到规定时间内的总结。其实也还好吧，这东西，慢慢总结吧，日子总也是一天一天过的，想多了也没用。 上期计划完成情况上次我说正在模仿写新浪页面，写了一半，发现还是有些地方自己还是没法实现，唉，连模仿写一个页面都写不出来，我滴心啊，拔凉拔凉？嗯，确实有那么点。这个先不说了。生气JavaScript dom 编程艺术，这本书还确实是看了，对DOM的运用确实提">
+<meta name="twitter:image" content="http://dong973711.github.io/img/xgc.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="一粒沙" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="http://p2.so.qhmsg.com/bdr/_240_/t01d3be8b257d6b58a7.jpg">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>记自己关于webplus pro的main.html的第一次 | 一粒沙</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="http://p2.so.qhmsg.com/bdr/_240_/t01d3be8b257d6b58a7.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">D</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">腾格里沙漠的一粒沙</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/homepage/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:1391484921@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://github.com/dong973711" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">小白</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">D</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="http://p2.so.qhmsg.com/bdr/_240_/t01d3be8b257d6b58a7.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">D</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">腾格里沙漠的一粒沙</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/homepage/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:1391484921@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/dong973711" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-关于webplus-pro的main-html的编写总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/15/关于webplus-pro的main-html的编写总结/" class="article-date">
+      <time datetime="2018-06-15T10:55:21.000Z" itemprop="datePublished">2018-06-15</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记自己关于webplus pro的main.html的第一次
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>突然发现离上次写博客已经大半个月了，好难过，没有做到规定时间内的总结。其实也还好吧，这东西，慢慢总结吧，日子总也是一天一天过的，想多了也没用。</p>
+<h1 id="上期计划完成情况"><a href="#上期计划完成情况" class="headerlink" title="上期计划完成情况"></a>上期计划完成情况</h1><p>上次我说正在模仿写新浪页面，写了一半，发现还是有些地方自己还是没法实现，唉，连模仿写一个页面都写不出来，我滴心啊，拔凉拔凉？嗯，确实有那么点。这个先不说了。生气<br>JavaScript dom 编程艺术，这本书还确实是看了，对DOM的运用确实提高了些理解，现在还有两章内容还没学完，前面的知识点也在笔记本上做了总结，等看完整本书了再试着写一篇博客吧</p>
+<h1 id="webplus-pro"><a href="#webplus-pro" class="headerlink" title="webplus pro"></a>webplus pro</h1><h2 id="突然一哈"><a href="#突然一哈" class="headerlink" title="突然一哈"></a>突然一哈</h2><p>这东西说来也很神奇，当时我们小组正在例会，当时大家正在低头写自己的东西，突然我们组长过来说让我试着写一个页面，当时有点兴奋也有点害怕，写不出来咋办。然后就打开了<a href="http://pro.webplus.net.cn/" target="_blank" rel="noopener">webplus Pro</a>，然后就进来了一个学长他说学工作处要做一主页，然后要我们前端组做一些任务，他突然就演示了一下webplus Pro的用法，好像要有啥权限，突然一下看到原来网页也可以这些做成，速度还这么快，大概给我讲了一下后，然后说让我做这么main.htm页面，这个是最容易一点的，说是赶星期三交给他，我们组长答应了，说不管我做不做出来，让我星期二给他，他完成剩下的。呼，一下就轻松了好多。</p>
+<h3 id="开始吧"><a href="#开始吧" class="headerlink" title="开始吧"></a>开始吧</h3><p>这就是要的最后效果<br><img src="/img/xgc.png" alt="学工处"><br><strong><em>发现个问题，要切图，必须抽空学习一下ps了</em></strong></p>
+<p>发现我真是个话痨。正题正题</p>
+<p>其实主要用的东西还是前端之前写页面用的html css连js也没有用到，主要就是先做页面效果<br>唯一的特殊地方就是，网页中的那些正式内容是不用写的，只需要按规定格式写褚一阁框架就好了<br><strong>模板窗口</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div frag=<span class="string">"面板1"</span>&gt;</span><br><span class="line">    &lt;div frag=<span class="string">"窗口1"</span>&gt;</span><br><span class="line">       &lt;div frag=<span class="string">"窗口内容"</span>&gt;</span><br><span class="line">          窗口内容</span><br><span class="line">       &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这些frag=”面板x”，frag=”窗口x”，frag=”窗口内容”，都是webplus规定的，未来把内容很好地嵌套在模板里。特别注意几点：窗口名和面板名都不可以相互重复，防止识别错误。窗口内容那部分是要被完全覆盖的，所以不用给<div frag="窗口内容">添加任何样式，添加了也没用，在把内容加入后，正是效果里是啥也看不到了。</div></p>
+<p>举个例子<br>原来的图：<img src="/img/xgc2.png" alt="样例"><br>做出的效果：<img src="/img/xgc1.png" alt="例子"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">样例代码（没有css代码部分）</span><br><span class="line"> &lt;div class=<span class="string">"bgbiaoti"</span>&gt;</span><br><span class="line">                            &lt;span class=<span class="string">"biaoti"</span>&gt;标题&lt;/span&gt;</span><br><span class="line">                            &lt;a href=<span class="string">"#"</span> class=<span class="string">"more"</span>&gt;&amp;gt&lt;/a&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=<span class="string">"pic scroll"</span> frag=<span class="string">"窗口01"</span>&gt;</span><br><span class="line">                            &lt;div frag=<span class="string">"窗口内容"</span>&gt;图片滚动区域&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;div class=<span class="string">"bgbiaoti"</span>&gt;</span><br><span class="line">                            &lt;span class=<span class="string">"biaoti"</span>&gt;标题&lt;/span&gt;</span><br><span class="line">                            &lt;a href=<span class="string">"#"</span> class=<span class="string">"more"</span>&gt;&amp;gt&lt;/a&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=<span class="string">"post1 post-04 mbox"</span> frag=<span class="string">"窗口04"</span>&gt;</span><br><span class="line">                            &lt;div class=<span class="string">"tt"</span>&gt;</span><br><span class="line">                                &lt;h3 class=<span class="string">"tit"</span>&gt;</span><br><span class="line">                                    &lt;span class=<span class="string">"title"</span> frag=<span class="string">"标题"</span>&gt;</span><br><span class="line">                                        &lt;span frag=<span class="string">"标题内容"</span>&gt;标题04&lt;/span&gt;</span><br><span class="line">                                    &lt;/span&gt;</span><br><span class="line">                                &lt;/h3&gt;</span><br><span class="line">                                &lt;div class=<span class="string">"more_btn"</span> frag=<span class="string">"按钮"</span> <span class="built_in">type</span>=<span class="string">"更多"</span>&gt;</span><br><span class="line">                                    &lt;span class=<span class="string">"more_text"</span> frag=<span class="string">"按钮内容"</span>&gt;更多&amp;gt;&amp;gt;&lt;/span&gt;</span><br><span class="line">                                &lt;/div&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                            &lt;div class=<span class="string">"con"</span>&gt;</span><br><span class="line">                                &lt;div frag=<span class="string">"窗口内容"</span>&gt;</span><br><span class="line">                                    窗口内容</span><br><span class="line">                                &lt;/div&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>大概实现就是这样。</p>
+<p>还有就是布局方面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">主体部分：</span><br><span class="line">&lt;div calss=<span class="string">"wrapper container"</span> id=<span class="string">"contanier"</span>&gt;</span><br><span class="line">   &lt;div class=<span class="string">"inner"</span>&gt;</span><br><span class="line">      &lt;div class=<span class="string">"mod clearfix"</span>&gt;</span><br><span class="line">        &lt;!--左列--&gt;</span><br><span class="line">        &lt;div class=<span class="string">"ml cleafix"</span>&gt;</span><br><span class="line">           &lt;div class=<span class="string">"modl"</span>&gt;</span><br><span class="line">               &lt;div class=<span class="string">"post mbox"</span>&gt;</span><br><span class="line">               &lt;/div&gt;</span><br><span class="line">           &lt;div class=<span class="string">"modc"</span>&gt;&lt;/div&gt;</span><br><span class="line">           &lt;div class=<span class="string">"modr"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;!--中列--&gt;</span><br><span class="line">        &lt;div class=<span class="string">"mc"</span>&gt;</span><br><span class="line">        中间内容</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;!--右列--&gt;</span><br><span class="line">        &lt;div class=<span class="string">"mr"</span>&gt;</span><br><span class="line">        右列内容</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>本来基础就不是很牢靠，再加上这次时间有点赶，还是第一次接触webplus，所以最后给我们组长时还有许多问题，最后还是他给我改了页面的效果布局，也是前天刚做完的，具体做了哪些代码的变动，我还没有找。其中页面布局定位时出现的最大的问题，问题还是因为命名重复，导致效果叠加，导致定位布局出现问题。</p>
+<h4 id="下次"><a href="#下次" class="headerlink" title="下次"></a>下次</h4><p>1.之前一直都是用一些标签写一些简单的页面，而且内容不多，css布局部分涉及的命名也很少，不用考虑那么多相互之间的影响，但以后再写的时候一定要特别注意命名，注意各部分内容之间的影响。<br>2.用webplus做页面，其中main.html大概就是最简单的部分了，剩下的会在后期学习<br>3.学完javascriopt dom这本书并总结<br>4.html css的再抽空看看</p>
+<p>嗯嗯嗯嗯！差不多就这样吧。哈哈，我觉着我应该去写小说，啥都没学到，但写起来，怎么感觉话那么多，全是与想要的所谓的技术层面没有关系的。嗯嗯，考虑尝试一下作家吧，董上春树？很棒。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/05/27/jquery和bootstrap一点小总结/">
+                    jquery和bootstrap一点小总结
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#上期计划完成情况"><span class="toc-number">1.</span> <span class="toc-text">上期计划完成情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webplus-pro"><span class="toc-number">2.</span> <span class="toc-text">webplus pro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#突然一哈"><span class="toc-number">2.1.</span> <span class="toc-text">突然一哈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#开始吧"><span class="toc-number">2.1.1.</span> <span class="toc-text">开始吧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下次"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">下次</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"记自己关于webplus pro的main.html的第一次　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2161978';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/05/27/jquery和bootstrap一点小总结/" title="下一篇: jquery和bootstrap一点小总结">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/15/关于webplus-pro的main-html的编写总结/">记自己关于webplus pro的main.html的第一次</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/13/js异常处理/">js异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/js实现的一点效果/">js实现的一点效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/summary/">summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/first/">first</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018 D
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 7;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
