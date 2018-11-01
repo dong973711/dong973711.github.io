@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="一粒沙">
 <meta property="og:description" content="好久没写了，自己也不知道做些什么！我也思考了很久，最珍贵的就是坚持，但是最难得的也就是坚持了。这个博客当时搭建好，由于派的任务，才写了几篇。现在也是感觉好迷茫，那天碰到一个找工作的学长，他说如果找工作就最好学习一点算法，现在正在自学Java，虽然也没什么进展，现在就借着这个博客，把剑指Offer的算法题做一遍，最少保证一周一题吧，然后同时也把Java学习着，等下学期再看要考研还是找工作。 二维数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-01T14:36:53.411Z">
+<meta property="og:updated_time" content="2018-11-01T14:45:13.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一粒沙">
 <meta name="twitter:description" content="好久没写了，自己也不知道做些什么！我也思考了很久，最珍贵的就是坚持，但是最难得的也就是坚持了。这个博客当时搭建好，由于派的任务，才写了几篇。现在也是感觉好迷茫，那天碰到一个找工作的学长，他说如果找工作就最好学习一点算法，现在正在自学Java，虽然也没什么进展，现在就借着这个博客，把剑指Offer的算法题做一遍，最少保证一周一题吧，然后同时也把Java学习着，等下学期再看要考研还是找工作。 二维数组">
@@ -287,9 +287,63 @@
           
         <p><strong>好久没写了，自己也不知道做些什么！我也思考了很久，最珍贵的就是坚持，但是最难得的也就是坚持了。这个博客当时搭建好，由于派的任务，才写了几篇。现在也是感觉好迷茫，那天碰到一个找工作的学长，他说如果找工作就最好学习一点算法，现在正在自学Java，虽然也没什么进展，现在就借着这个博客，把剑指Offer的算法题做一遍，最少保证一周一题吧，然后同时也把Java学习着，等下学期再看要考研还是找工作。</strong></p>
 <h1 id="二维数组总的查找："><a href="#二维数组总的查找：" class="headerlink" title="二维数组总的查找："></a>二维数组总的查找：</h1><p>题目描述：在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p><strong>注意要点，数组长度的求法，用C++和Java两种语言的求法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Java代码：</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean Find(int target, int [][] array) &#123;</span><br><span class="line">        if(array.length==0||array[0].length==0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int m=array.length-1;</span><br><span class="line">        int max=m;</span><br><span class="line">        int n=0;</span><br><span class="line">        int com = array[n][m];</span><br><span class="line">        while(target!=com)&#123;</span><br><span class="line">            if(n&lt;max&amp;&amp;m&gt;0)&#123;</span><br><span class="line">                if(target&gt;com)&#123;</span><br><span class="line">                    n++;</span><br><span class="line">                    com = array[n][m];</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    m--;</span><br><span class="line">                    com = array[n][m];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h1><p><strong>题目描述：</strong>实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<br><strong>注意字符与字符串：</strong>“a”属于字符串，’a’属于字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">C++代码:</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	void replaceSpace(char *str,int length) &#123;</span><br><span class="line">         int i=0;</span><br><span class="line">        while(str[i]!=&apos;\0&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            if(str[i]==&apos; &apos;)</span><br><span class="line">            &#123;</span><br><span class="line">                for(int j=length-1;j&gt;i;j--)</span><br><span class="line">                &#123;</span><br><span class="line">                    str[j+2]=str[j];</span><br><span class="line">                &#125;</span><br><span class="line">                str[i+2]=&apos;0&apos;;</span><br><span class="line">                str[i+1]=&apos;2&apos;;</span><br><span class="line">                str[i]=&apos;%&apos;;</span><br><span class="line">                length+=2;</span><br><span class="line">                i=i+2;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意要点，数组长度的求法，用C++和Java两种语言的求法：</strong></p>
+<pre><code>Java代码：
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+        if(array.length==0||array[0].length==0){
+            return false;
+        }
+        int m=array.length-1;
+        int max=m;
+        int n=0;
+        int com = array[n][m];
+        while(target!=com){
+            if(n&lt;max&amp;&amp;m&gt;0){
+                if(target&gt;com){
+                    n++;
+                    com = array[n][m];
+                }else{
+                    m--;
+                    com = array[n][m];
+                }
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
 
+</code></pre><h1 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h1><p><strong>题目描述：</strong>实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<br><strong>注意字符与字符串：</strong>“a”属于字符串，’a’属于字符</p>
+<pre><code>C++代码:
+class Solution {
+public:
+    void replaceSpace(char *str,int length) {
+         int i=0;
+        while(str[i]!=&apos;\0&apos;)
+        {
+            if(str[i]==&apos; &apos;)
+            {
+                for(int j=length-1;j&gt;i;j--)
+                {
+                    str[j+2]=str[j];
+                }
+                str[i+2]=&apos;0&apos;;
+                str[i+1]=&apos;2&apos;;
+                str[i]=&apos;%&apos;;
+                length+=2;
+                i=i+2;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+};
+
+</code></pre>
       
     </div>
     
@@ -299,12 +353,6 @@
 
 
     <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/11/01/剑指Offer-md/">
-                    剑指Offer.md
-                </a>
-            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -393,9 +441,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/11/01/剑指Offer-md/" title="上一篇: 剑指Offer.md">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -407,7 +453,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/剑指Offer-md/">剑指Offer.md</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/剑指Offer/">剑指Offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/15/关于webplus-pro的main-html的编写总结/">记自己关于webplus pro的main.html的第一次</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/13/js异常处理/">js异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/js实现的一点效果/">js实现的一点效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/summary/">summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/first/">first</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/剑指Offer/">剑指Offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/15/关于webplus-pro的main-html的编写总结/">记自己关于webplus pro的main.html的第一次</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/13/js异常处理/">js异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/js实现的一点效果/">js实现的一点效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/summary/">summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/first/">first</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/hello-world/">Hello World</a></li></ul>
 
 
 
