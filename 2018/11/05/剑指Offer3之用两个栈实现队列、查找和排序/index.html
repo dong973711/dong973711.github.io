@@ -15,18 +15,20 @@
 
 
 
-<meta name="description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="description" content="用两个栈实现队列题目描述：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 分析：栈是先进后出，队列是先进先出。要让两个栈实现先进先出的顺序，则可以让一个栈专门做出（pop）操作,一个栈专门做（push）操作（当出栈的栈里面元素没有时，然后才把另一个栈内的元素放入那个负责pop的栈），这样就实现了先进先出的操作，即实现了队列。 代码：12345678910111">
 <meta name="keywords" content="donghu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
-<meta property="og:url" content="http://dong973711.github.io/2018/04/18/first/index.html">
+<meta property="og:title" content="剑指Offer3之用两个栈实现队列、查找和排序">
+<meta property="og:url" content="http://dong973711.github.io/2018/11/05/剑指Offer3之用两个栈实现队列、查找和排序/index.html">
 <meta property="og:site_name" content="一粒沙">
-<meta property="og:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta property="og:description" content="用两个栈实现队列题目描述：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 分析：栈是先进后出，队列是先进先出。要让两个栈实现先进先出的顺序，则可以让一个栈专门做出（pop）操作,一个栈专门做（push）操作（当出栈的栈里面元素没有时，然后才把另一个栈内的元素放入那个负责pop的栈），这样就实现了先进先出的操作，即实现了队列。 代码：12345678910111">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T04:02:49.802Z">
+<meta property="og:image" content="http://dong973711.github.io/img/twostacktoquene.png">
+<meta property="og:updated_time" content="2018-11-05T12:10:23.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first">
-<meta name="twitter:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="twitter:title" content="剑指Offer3之用两个栈实现队列、查找和排序">
+<meta name="twitter:description" content="用两个栈实现队列题目描述：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。 分析：栈是先进后出，队列是先进先出。要让两个栈实现先进先出的顺序，则可以让一个栈专门做出（pop）操作,一个栈专门做（push）操作（当出栈的栈里面元素没有时，然后才把另一个栈内的元素放入那个负责pop的栈），这样就实现了先进先出的操作，即实现了队列。 代码：12345678910111">
+<meta name="twitter:image" content="http://dong973711.github.io/img/twostacktoquene.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +60,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>first | 一粒沙</title>
+<title>剑指Offer3之用两个栈实现队列、查找和排序 | 一粒沙</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-剑指Offer3之用两个栈实现队列、查找和排序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/first/" class="article-date">
-      <time datetime="2018-04-18T13:43:36.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2018/11/05/剑指Offer3之用两个栈实现队列、查找和排序/" class="article-date">
+      <time datetime="2018-11-05T07:29:59.000Z" itemprop="datePublished">2018-11-05</time>
 </a>
 
 
@@ -286,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      first
+      剑指Offer3之用两个栈实现队列、查找和排序
     </h1>
   
 
@@ -303,7 +305,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的</p>
+        <h1 id="用两个栈实现队列"><a href="#用两个栈实现队列" class="headerlink" title="用两个栈实现队列"></a>用两个栈实现队列</h1><p><strong>题目描述：</strong>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<p><strong>分析：</strong>栈是先进后出，队列是先进先出。要让两个栈实现先进先出的顺序，则可以让一个栈专门做出（pop）操作,一个栈专门做（push）操作（当出栈的栈里面元素没有时，然后才把另一个栈内的元素放入那个负责pop的栈），这样就实现了先进先出的操作，即实现了队列。<br><img src="/img/twostacktoquene.png" alt="原理图"></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    void push(int node) &#123;</span><br><span class="line">        stack2.push(node);            //让stack2为执行push操作，把元素放入stack2</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int pop() &#123;</span><br><span class="line">        int value;</span><br><span class="line">        if(stack1.size()&gt;0)&#123;          //若stack1不为空，则执行出栈</span><br><span class="line">            value = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">        &#125;else if(stack2.size()&gt;0)&#123;    //stack1为空，</span><br><span class="line">            while(stack2.size()&gt;0)&#123;   //若stack2不为为空，则把Stack2的元素放入stack1</span><br><span class="line">                value = stack2.top();</span><br><span class="line">                stack1.push(value);</span><br><span class="line">                stack2.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            if(stack1.size()&gt;0)&#123;      //放入stack1后继续从stack1执行pop操作</span><br><span class="line">                value = stack1.top();</span><br><span class="line">                stack1.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return value;					//返回stack1栈顶的值，既队列队首的值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    stack&lt;int&gt; stack1;</span><br><span class="line">    stack&lt;int&gt; stack2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="旋转数组的最小数字"><a href="#旋转数组的最小数字" class="headerlink" title="旋转数组的最小数字"></a>旋转数组的最小数字</h1><p><strong>题目描述：</strong>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。<br><strong>分析：</strong>这个问题比较简单了，依次检测，只要发现出现了递减的情况，变返回这个数字就可以。若遍历了一遍数组还是没有发现这种情况，则说明没有出现这种旋转情况，则输出第一个元素好了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minNumberInRotateArray(vector&lt;int&gt; rotateArray) &#123;</span><br><span class="line">        if(rotateArray.size()==0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            int len = rotateArray.size();</span><br><span class="line">            for(int i=1;i&lt;len;i++)&#123;</span><br><span class="line">                if(rotateArray[i]&lt;rotateArray[i-1])&#123;</span><br><span class="line">                    return rotateArray[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return rotateArray[0];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong><br>关于栈与队列这个题目，虽然对栈与队列的认识又更深了一层，但是对他们的实际应用还是一点都没有，对他们的用法还有待去提高。</p>
 
       
     </div>
@@ -316,15 +322,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/04/26/summary/">
-                    summary
+                <a href="/2018/11/05/剑指Offerr4之递归和循环/">
+                    剑指Offerr4之递归和循环
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/04/15/hello-world/">
-                    Hello World
+                <a href="/2018/11/03/剑指Offer2之从头到尾打印链表/">
+                    剑指Offer2之从头到尾打印链表
                 </a>
             </div>
         
@@ -336,7 +342,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用两个栈实现队列"><span class="toc-number">1.</span> <span class="toc-text">用两个栈实现队列</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#旋转数组的最小数字"><span class="toc-number">2.</span> <span class="toc-text">旋转数组的最小数字</span></a></li></ol>
         
     </div>
     <style>
@@ -372,7 +378,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"first　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"剑指Offer3之用两个栈实现队列、查找和排序　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -408,7 +414,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/04/26/summary/" title="上一篇: summary">
+            <a href="/2018/11/05/剑指Offerr4之递归和循环/" title="上一篇: 剑指Offerr4之递归和循环">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -416,7 +422,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/15/hello-world/" title="下一篇: Hello World">
+            <a href="/2018/11/03/剑指Offer2之从头到尾打印链表/" title="下一篇: 剑指Offer2之从头到尾打印链表">
                 <i class="fa fa-angle-right"></i>
             </a>
         

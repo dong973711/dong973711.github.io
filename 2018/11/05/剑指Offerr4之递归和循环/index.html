@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="description" content="斐波那契函数 题目描述：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39 分析：这个题大学刚开始学C++的时候就见过，这个是有规律:n=0:0;  n=1:1; n=2:1; n=3:2; n=4:3; n=5:5;…..依次就是前两个数相加。 代码：123456789101112131415161718class Soluti">
 <meta name="keywords" content="donghu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first">
-<meta property="og:url" content="http://dong973711.github.io/2018/04/18/first/index.html">
+<meta property="og:title" content="剑指Offerr4之递归和循环">
+<meta property="og:url" content="http://dong973711.github.io/2018/11/05/剑指Offerr4之递归和循环/index.html">
 <meta property="og:site_name" content="一粒沙">
-<meta property="og:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta property="og:description" content="斐波那契函数 题目描述：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39 分析：这个题大学刚开始学C++的时候就见过，这个是有规律:n=0:0;  n=1:1; n=2:1; n=3:2; n=4:3; n=5:5;…..依次就是前两个数相加。 代码：123456789101112131415161718class Soluti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-29T04:02:49.802Z">
+<meta property="og:updated_time" content="2018-11-05T13:28:05.714Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first">
-<meta name="twitter:description" content="第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的">
+<meta name="twitter:title" content="剑指Offerr4之递归和循环">
+<meta name="twitter:description" content="斐波那契函数 题目描述：大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&amp;lt;=39 分析：这个题大学刚开始学C++的时候就见过，这个是有规律:n=0:0;  n=1:1; n=2:1; n=3:2; n=4:3; n=5:5;…..依次就是前两个数相加。 代码：123456789101112131415161718class Soluti">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>first | 一粒沙</title>
+<title>剑指Offerr4之递归和循环 | 一粒沙</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-剑指Offerr4之递归和循环" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/04/18/first/" class="article-date">
-      <time datetime="2018-04-18T13:43:36.000Z" itemprop="datePublished">2018-04-18</time>
+      <a href="/2018/11/05/剑指Offerr4之递归和循环/" class="article-date">
+      <time datetime="2018-11-05T12:13:46.000Z" itemprop="datePublished">2018-11-05</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      first
+      剑指Offerr4之递归和循环
     </h1>
   
 
@@ -303,7 +303,41 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的</p>
+        <h1 id="斐波那契函数"><a href="#斐波那契函数" class="headerlink" title="斐波那契函数"></a>斐波那契函数</h1><ol>
+<li><strong>题目描述：</strong>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39</li>
+<li><strong>分析：</strong>这个题大学刚开始学C++的时候就见过，这个是有规律<strong>:n=0:0;  n=1:1; n=2:1; n=3:2; n=4:3; n=5:5;…..</strong>依次就是前两个数相加。</li>
+<li><strong>代码：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int Fibonacci(int n) &#123;</span><br><span class="line">        int count=0,a=0,b=1;</span><br><span class="line">        if(n==0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n==1)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            for(int i=1;i&lt;n;i++)&#123;</span><br><span class="line">                count = a;</span><br><span class="line">                a = b;</span><br><span class="line">                b = count+a;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">递归：(虽然可以递归，但是递归的时间复杂度比较高)</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int Fibonacci(int n) &#123;</span><br><span class="line">        int count=0,a=0,b=1;</span><br><span class="line">        if(n==0)&#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;else if(n==1)&#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return Fibonacci(n-1)+Fibonacci(n-2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="跳台阶："><a href="#跳台阶：" class="headerlink" title="跳台阶："></a>跳台阶：</h1><ol>
+<li><strong>题目描述：</strong>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。</li>
+<li><strong>分析：</strong>这个题和斐波那契数列是一样的规律</li>
+<li><strong>代码：</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">递归：</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jumpFloor(int number) &#123;</span><br><span class="line">        int count=0,a=1,b=2;</span><br><span class="line">        if(number&lt;=2)&#123;</span><br><span class="line">            return number;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return jumpFloor(number-1)+jumpFloor(number-2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jumpFloor(int number) &#123;</span><br><span class="line">        int count=0,a=1,b=2;</span><br><span class="line">        if(number&lt;=2)&#123;</span><br><span class="line">            return number;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            for(int i=2;i&lt;number;i++)&#123;</span><br><span class="line">                count=b;</span><br><span class="line">                b=count+a;</span><br><span class="line">                a=count;</span><br><span class="line">            &#125;</span><br><span class="line">            return b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="变态跳台阶问题"><a href="#变态跳台阶问题" class="headerlink" title="变态跳台阶问题"></a>变态跳台阶问题</h1><ol>
+<li><strong>题目描述：</strong>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</li>
+<li><strong>分析：</strong></li>
+</ol>
+<ul>
+<li>n=1，只有一种跳法</li>
+<li>n=2，有两种跳法，一种是直接跳两节，一种是一节一节跳两次（目前来说是和上一题是一样的）</li>
+<li>n=3,当第一下跳一节时，有f(3-1)种，当第一下跳两节时有f(3-2)种跳法，当地一下跳三节时只有一种跳法，所以总共有f(2)+f(1)+1种；</li>
+<li>n=4，当第一下跳一节时，有f(4-1)种，当第一下跳两节时有f(4-2)种跳法，当第一下跳三节时有f(4-3)种跳法，当地一下跳四节时只有一种跳法，所以总共有f(3)+f(2)+f(1)+1种；</li>
+<li>……..</li>
+<li>n阶时，跳法有f(n-1)+f(n-2)+…+f(1)+1  = f(n);</li>
+<li>n-1阶时，跳法有f(n-2)+f(n-3)+…+f(1)+1 = f(n-1);<br>两式相减：f(n) = 2*f(n-1)</li>
+</ul>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">递归：</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jumpFloorII(int number) &#123;</span><br><span class="line">        if(number&lt;=2)&#123;</span><br><span class="line">            return number;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">           return 2*jumpFloorII(number-1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">从底向上动态规划：</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jumpFloorII(int number) &#123;</span><br><span class="line">        int container[number],i;</span><br><span class="line">        container[0]=0;</span><br><span class="line">        container[1]=1;</span><br><span class="line">        container[2]=2;</span><br><span class="line">       for(i=3;i&lt;=number;i++)&#123;</span><br><span class="line">            container[i]=2*container[i-1];</span><br><span class="line">       &#125;</span><br><span class="line">       return container[number];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="矩形覆盖："><a href="#矩形覆盖：" class="headerlink" title="矩形覆盖："></a>矩形覆盖：</h1><ol>
+<li><strong>题目描述：</strong>我们可以用 2*1 的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</li>
+<li><strong>代码：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int rectCover(int number) &#123;</span><br><span class="line">        if(number&lt;=2)&#123;</span><br><span class="line">            return number;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            return rectCover(number-1)+rectCover(number-2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>上面几个问题都可以用递归解决，而且递归看起来代码更加简洁一点。但是递归是一个不断去往下计算的过程，中间会计算许多已经计算过的问题，这样下去增加了计算的时间负责度。<br>我们可以把计算出来的每一个值做个记录，然后在它需要的时候直接拿来用吗，这样就可以解决重复计算的问题。这样的解决办法也叫动态规划。<br>动态规划基本思想就是把待求问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解</p>
 
       
     </div>
@@ -315,16 +349,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/04/26/summary/">
-                    summary
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/04/15/hello-world/">
-                    Hello World
+                <a href="/2018/11/05/剑指Offer3之用两个栈实现队列、查找和排序/">
+                    剑指Offer3之用两个栈实现队列、查找和排序
                 </a>
             </div>
         
@@ -336,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#斐波那契函数"><span class="toc-number">1.</span> <span class="toc-text">斐波那契函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#跳台阶："><span class="toc-number">2.</span> <span class="toc-text">跳台阶：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#变态跳台阶问题"><span class="toc-number">3.</span> <span class="toc-text">变态跳台阶问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#矩形覆盖："><span class="toc-number">4.</span> <span class="toc-text">矩形覆盖：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
         
     </div>
     <style>
@@ -372,7 +400,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"first　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"剑指Offerr4之递归和循环　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -408,15 +436,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/04/26/summary/" title="上一篇: summary">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/04/15/hello-world/" title="下一篇: Hello World">
+            <a href="/2018/11/05/剑指Offer3之用两个栈实现队列、查找和排序/" title="下一篇: 剑指Offer3之用两个栈实现队列、查找和排序">
                 <i class="fa fa-angle-right"></i>
             </a>
         
