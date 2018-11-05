@@ -270,6 +270,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-剑指Offer3之用两个栈实现队列" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/05/剑指Offer3之用两个栈实现队列/" class="article-date">
+      <time datetime="2018-11-05T07:29:59.000Z" itemprop="datePublished">2018-11-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/05/剑指Offer3之用两个栈实现队列/">剑指Offer3之用两个栈实现队列</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>题目描述：</strong>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<p><strong>分析：</strong>栈是先进后出，队列是先进先出。要让两个栈实现先进先出的顺序，则可以让一个栈专门做出（pop）操作,一个栈专门做（push）操作（当出栈的栈里面元素没有时，然后才把另一个栈内的元素放入那个负责pop的栈），这样就实现了先进先出的操作，即实现了队列。<br><img src="/img/twostacktoquene.png" alt="原理图"></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    void push(int node) &#123;</span><br><span class="line">        stack2.push(node);            //让stack2为执行push操作，把元素放入stack2</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int pop() &#123;</span><br><span class="line">        int value;</span><br><span class="line">        if(stack1.size()&gt;0)&#123;          //若stack1不为空，则执行出栈</span><br><span class="line">            value = stack1.top();</span><br><span class="line">            stack1.pop();</span><br><span class="line">        &#125;else if(stack2.size()&gt;0)&#123;    //stack1为空，</span><br><span class="line">            while(stack2.size()&gt;0)&#123;   //若stack2不为为空，则把Stack2的元素放入stack1</span><br><span class="line">                value = stack2.top();</span><br><span class="line">                stack1.push(value);</span><br><span class="line">                stack2.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            if(stack1.size()&gt;0)&#123;      //放入stack1后继续从stack1执行pop操作</span><br><span class="line">                value = stack1.top();</span><br><span class="line">                stack1.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return value;					//返回stack1栈顶的值，既队列队首的值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    stack&lt;int&gt; stack1;</span><br><span class="line">    stack&lt;int&gt; stack2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong><br>从这个题目，虽然对栈与队列的认识又更深了一层，但是对他们的实际应用还是一点都没有，对他们的用法还有待去提高。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer2之从头到尾打印链表" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -300,7 +359,7 @@
       
           
         <p><strong>题目描述：</strong>输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。<br><strong>已给：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*  struct ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        struct ListNode *next;</span><br><span class="line">*        ListNode(int x) :</span><br><span class="line">*              val(x), next(NULL) &#123;</span><br><span class="line">*        &#125;</span><br><span class="line">*  &#125;;</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>第一眼感受：单链表，想起了数据结构的学的，那时候好像就只略微学会了链表这一节。可是再细看，这特么不按照常理出牌啊，vector<int>,只听过vector是栈的意思，但具体深入却不会用啊，那就查吧。。。</int></p>
+<p>第一眼感受：单链表，想起了数据结构的学的，那时候好像就只略微学会了链表这一节。可是再细看，这特么不按照常理出牌啊，vector<int>,只听过vector，但却一点也不了解啊，那就查吧。。。</int></p>
 <p><a href="http://www.cnblogs.com/zhonghuasong/p/5975979.html" target="_blank" rel="noopener">C++ STL之vector用法总结</a>这个上面还是总结的很好的</p>
 <p><strong>题解代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">        vector&lt;int&gt; daoxu;</span><br><span class="line">        ListNode* p = head;</span><br><span class="line">        while(p!=NULL)&#123;</span><br><span class="line">            daoxu.push_back(p-&gt;val);</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(daoxu.begin(),daoxu.end());</span><br><span class="line">        return daoxu;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p><strong>总结：</strong></p>

@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="一粒沙">
 <meta property="og:description" content="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。已给：12345678910111213/***  struct ListNode &amp;#123;*        int val;*        struct ListNode *next;*        ListNode(int x) :*              val(x), next(NULL) &amp;#123;*">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-03T14:17:12.919Z">
+<meta property="og:updated_time" content="2018-11-04T07:45:03.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指Offer2之从头到尾打印链表">
 <meta name="twitter:description" content="题目描述：输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。已给：12345678910111213/***  struct ListNode &amp;#123;*        int val;*        struct ListNode *next;*        ListNode(int x) :*              val(x), next(NULL) &amp;#123;*">
@@ -304,7 +304,7 @@
       
           
         <p><strong>题目描述：</strong>输入一个链表，按链表值从尾到头的顺序返回一个ArrayList。<br><strong>已给：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*  struct ListNode &#123;</span><br><span class="line">*        int val;</span><br><span class="line">*        struct ListNode *next;</span><br><span class="line">*        ListNode(int x) :</span><br><span class="line">*              val(x), next(NULL) &#123;</span><br><span class="line">*        &#125;</span><br><span class="line">*  &#125;;</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>第一眼感受：单链表，想起了数据结构的学的，那时候好像就只略微学会了链表这一节。可是再细看，这特么不按照常理出牌啊，vector<int>,只听过vector是栈的意思，但具体深入却不会用啊，那就查吧。。。</int></p>
+<p>第一眼感受：单链表，想起了数据结构的学的，那时候好像就只略微学会了链表这一节。可是再细看，这特么不按照常理出牌啊，vector<int>,只听过vector，但却一点也不了解啊，那就查吧。。。</int></p>
 <p><a href="http://www.cnblogs.com/zhonghuasong/p/5975979.html" target="_blank" rel="noopener">C++ STL之vector用法总结</a>这个上面还是总结的很好的</p>
 <p><strong>题解代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; printListFromTailToHead(ListNode* head) &#123;</span><br><span class="line">        vector&lt;int&gt; daoxu;</span><br><span class="line">        ListNode* p = head;</span><br><span class="line">        while(p!=NULL)&#123;</span><br><span class="line">            daoxu.push_back(p-&gt;val);</span><br><span class="line">            p = p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(daoxu.begin(),daoxu.end());</span><br><span class="line">        return daoxu;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p><strong>总结：</strong></p>
@@ -347,6 +347,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/11/05/剑指Offer3之用两个栈实现队列/">
+                    剑指Offer3之用两个栈实现队列
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -435,7 +441,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/11/05/剑指Offer3之用两个栈实现队列/" title="上一篇: 剑指Offer3之用两个栈实现队列">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -447,7 +455,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/03/剑指Offer2之从头到尾打印链表/">剑指Offer2之从头到尾打印链表</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/剑指offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/15/关于webplus-pro的main-html的编写总结/">记自己关于webplus pro的main.html的第一次</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/13/js异常处理/">js异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/js实现的一点效果/">js实现的一点效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/summary/">summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/first/">first</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/11/05/剑指Offer3之用两个栈实现队列/">剑指Offer3之用两个栈实现队列</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/03/剑指Offer2之从头到尾打印链表/">剑指Offer2之从头到尾打印链表</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/01/剑指offer/">剑指offer</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/15/关于webplus-pro的main-html的编写总结/">记自己关于webplus pro的main.html的第一次</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/13/js异常处理/">js异常处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/08/js实现的一点效果/">js实现的一点效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/26/summary/">summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/18/first/">first</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/15/hello-world/">Hello World</a></li></ul>
 
 
 
