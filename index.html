@@ -270,6 +270,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-剑指Offer5之位运算" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/06/剑指Offer5之位运算/" class="article-date">
+      <time datetime="2018-11-06T14:35:55.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/06/剑指Offer5之位运算/">剑指Offer5之位运算</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>题目描述：</strong>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。<br><strong>：</strong>这个题目要求负数用补码表示，我就很懵逼了，难道还要去判断正负数，然后负数求补码来运算吗。只能求助百度了，在网上找到了这题的三种解法，现在我来总结一下。</p>
+<h5 id="最优位操作"><a href="#最优位操作" class="headerlink" title="最优位操作:"></a>最优位操作:</h5><p>如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后面还有0的话)。其余所有位将不会受到影响。</p>
+<p>比如：一个二进制数1100，从右边数起第三位是处于最右边的一个1。减去1后，第三位变成0，它后面的两位0变成了1，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0。如1100&amp;1011=1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">     int  NumberOf1(int n) &#123;</span><br><span class="line">         int count=0;</span><br><span class="line">         if(n==0)&#123;</span><br><span class="line">             return 0;</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">             while(n!=0)&#123;</span><br><span class="line">                 count++;</span><br><span class="line">                 n = (n-1)&amp;n;</span><br><span class="line">             &#125;</span><br><span class="line">             return count;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h5 id="位运算法："><a href="#位运算法：" class="headerlink" title="位运算法："></a>位运算法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">把数字当成二进制样式，依次判断其最后一位是否为一（判断一次，右移一位）</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int NumberOf1(int n)&#123;</span><br><span class="line">        int count = 0;</span><br><span class="line">        int flag = 1;</span><br><span class="line">        while(flag != 0)&#123;</span><br><span class="line">            if((n &amp; flag))&#123;</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">            flag = flag &lt;&lt; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="模除法："><a href="#模除法：" class="headerlink" title="模除法："></a>模除法：</h5><p>模除法就是常规做法，通过我们平时把十进制转化为二进制的方法，依次判断每一位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	int NumberOf1(unsigned int n)&#123;</span><br><span class="line">    int number = 0;   //数 1 的个数</span><br><span class="line"></span><br><span class="line">        while(n != 0)&#123;</span><br><span class="line">            if(n % 2 == 1)&#123;</span><br><span class="line">                number ++;</span><br><span class="line">            &#125;</span><br><span class="line">            n = n / 2;</span><br><span class="line">        &#125;</span><br><span class="line">    	return number;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义"><a href="#问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义" class="headerlink" title="问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义"></a>问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义</h2><p><strong>补码(two’s complement) 1、在计算机系统中，数值一律用补码来表示（存储）。 主要原因：使用补码，可以将符号位和其它位统一处理；同时，减法也可按加法来处理。另外，两个用补 码表示的数相加时，如果最高位（符号位）有进位，则进位被舍弃。 2、补码与原码的转换过程几乎是相同的。</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offerr4之递归和循环" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -952,62 +1013,6 @@
 <p>命令简写<br>hexo n  “我的博客” == hexo new  “我的博客”   #新建文章<br>hexo g == hexo generate   #生成<br>hexo s == hexo server   #启动服务预览<br>hexo d == hexo deploy   #部署</p>
 <p>hexo server     #Hexo会监视文件变动并自动更新，无须重启服务器<br>hexo server -s    #静态模式<br>hexo server -p 5000     #更改端口<br>hexo server -i 192.168.1.1     #自定义 IP<br>hexo clean     #清除缓存，若是网页正常情况下可以忽略这条命令</p>
 <p>刚刚的三个命令依次是新建一篇博客文章、生成网页、在本地预览的操作。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/04/18/first/" class="article-date">
-      <time datetime="2018-04-18T13:43:36.000Z" itemprop="datePublished">2018-04-18</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/18/first/">first</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>第一次，也不知道发什么东西，就是单纯看看发个博文是怎么样的</p>
 
       
     </div>
