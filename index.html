@@ -270,6 +270,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-剑指Offer9之字符串的排列和把数组排成最小数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/25/剑指Offer9之字符串的排列和把数组排成最小数/" class="article-date">
+      <time datetime="2018-11-25T08:31:34.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/25/剑指Offer9之字符串的排列和把数组排成最小数/">剑指Offer9之字符串的排列和把数组排成最小数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="把数组排成最小数"><a href="#把数组排成最小数" class="headerlink" title="把数组排成最小数"></a>把数组排成最小数</h1><p><strong>题目描述：</strong>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。<br><strong>分析：</strong>数组中所有的数拼接后有可能会超过整数的范围，因此本题必须要使用字符串来处理。<br>要对3，32 ，321 排序，不能直接比较32，3的大小，应该比较323，332的大小，即，3，32的大小应该有323，332的大小来确定。因此3比32大，3应该在32后面，32和321比较时，32321&gt;32132,因此32&gt;321,32在321后面，3，32，321由小到大排序为，321，32，3，组成的最小数为：321323<br>这个过程就是需要两两结合比较哪种结合方式得到的数更小（冒泡排序，排序规则自己规定）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string PrintMinNumber(vector&lt;int&gt; numbers) &#123;</span><br><span class="line">        string shu;</span><br><span class="line">        int len = numbers.size();</span><br><span class="line">        if(len == 0)&#123;</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(numbers.begin(),numbers.end(),cmp);</span><br><span class="line">        for(int i=0;i&lt;len;i++)&#123;</span><br><span class="line">            shu+=to_string(numbers[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        return shu;</span><br><span class="line">    &#125;</span><br><span class="line">    static bool cmp(int a,int b)&#123;</span><br><span class="line">        string A = to_string(a)+to_string(b);</span><br><span class="line">        string B = to_string(b)+to_string(a);</span><br><span class="line">        return A&lt;B;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>总结：</strong>1.C++中也有to_string函数调用，包含文件为<string>。<br>2.Sort函数包含在头文件为#include<algorithm>的c++标准库中，调用标准库里的排序方法可以不必知道其内部是如何实现的，只要出现我们想要的结果即可!</algorithm></string></p>
+<p>Sort函数有三个参数:</p>
+<p>(1)第一个是要排序的数组的起始地址。</p>
+<p>(2)第二个是结束的地址(最后一位要排序的地址的下一地址)</p>
+<p>(3)第三个参数是排序的方法，可以是从大到小也可是从小到大，还可以不写第三个参数，此时默认的排序方法是从小到大排序。<br>若是要求从打到小排列，重写compare函数如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool compare(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">	return a&gt;b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="字符串的排列"><a href="#字符串的排列" class="headerlink" title="字符串的排列"></a>字符串的排列</h1><p><strong>题目描述：</strong>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。<br><strong>分析：</strong>在STL中，除了next_permutation外，还有一个函数prev_permutation，两者都是用来计算排列组合的函数。前者是求出下一个排列组合，而后者是求出上一个排列组合。所谓“下一个”和“上一个”，书中举了一个简单的例子：<strong>对序列 {a, b, c}，每一个元素都比后面的小，按照字典序列，固定a之后，a比bc都小，c比b大，它的下一个序列即为{a, c, b}，而{a, c, b}的上一个序列即为{a, b, c}，同理可以推出所有的六个序列为：{a, b, c}、{a, c, b}、{b, a, c}、{b, c, a}、{c, a, b}、{c, b, a}，其中{a, b, c}没有上一个元素，{c, b, a}没有下一个元素。</strong><br>所以这个例子就可以用next_permutation函数来解决（前提是先要排好序）<br>这是一个c++函数，包含在头文件<algorithm>里面，下面是基本格式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 int a[n];</span><br><span class="line">2 sort(a,a+n);</span><br><span class="line">3 do&#123;</span><br><span class="line">4   //操作</span><br><span class="line">5 &#125;while(next_permutation(a,a+n));</span><br></pre></td></tr></table></figure></algorithm></p>
+<p><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; Permutation(string str) &#123;</span><br><span class="line">        vector&lt;string&gt; b;</span><br><span class="line">        int len = str.length();</span><br><span class="line">        if(len==0)&#123;</span><br><span class="line">            return b;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(str.begin(),str.end());</span><br><span class="line">        do&#123;</span><br><span class="line">            b.push_back(str.substr(0,len));</span><br><span class="line">        &#125;while (next_permutation(str.begin(), str.end()));</span><br><span class="line">        return b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-剑指Offer8之时间效率" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -853,74 +916,6 @@
 <p>本来基础就不是很牢靠，再加上这次时间有点赶，还是第一次接触webplus，所以最后给我们组长时还有许多问题，最后还是他给我改了页面的效果布局，也是前天刚做完的，具体做了哪些代码的变动，我还没有找。其中页面布局定位时出现的最大的问题，问题还是因为命名重复，导致效果叠加，导致定位布局出现问题。</p>
 <h4 id="下次"><a href="#下次" class="headerlink" title="下次"></a>下次</h4><p>1.之前一直都是用一些标签写一些简单的页面，而且内容不多，css布局部分涉及的命名也很少，不用考虑那么多相互之间的影响，但以后再写的时候一定要特别注意命名，注意各部分内容之间的影响。<br>2.用webplus做页面，其中main.html大概就是最简单的部分了，剩下的会在后期学习<br>3.学完javascriopt dom这本书并总结<br>4.html css的再抽空看看</p>
 <p>嗯嗯嗯嗯！差不多就这样吧。哈哈，我觉着我应该去写小说，啥都没学到，但写起来，怎么感觉话那么多，全是与想要的所谓的技术层面没有关系的。嗯嗯，考虑尝试一下作家吧，董上春树？很棒。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jquery和bootstrap一点小总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/05/27/jquery和bootstrap一点小总结/" class="article-date">
-      <time datetime="2018-05-27T07:51:35.000Z" itemprop="datePublished">2018-05-27</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/27/jquery和bootstrap一点小总结/">jquery和bootstrap一点小总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>最近两周感觉一直浑浑噩噩的，也不知道自己做了什么。总感觉现在的状态就是想得到的太多，而做的还太少。在学习的过程中，感绝总是有点急于求成，一切知识都毛毛躁躁的粗略过一次下，看起来似乎了解了好多，但自己终究还是最清楚自己到底学到东西没有（肯定是没有的）。</p>
-<p>感觉博客就像是一个日记本，还可以倒倒自己的苦水，不说那么多了，还是想看看我最近在jquery和bootstrap的东西吧。</p>
-<h1 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h1><p>JQuery是一个JavaScript库，我们要实现一些效果只需要直接引入这个库，然后根据规范使用，得到你想要的效果，这样就不需要我们写非常复杂的一堆代码去实现某个效果了。</p>
-<p>JQuery我基是完完整整的看完并敲了一遍W3C中的示例代码，不过手册中好多的效果并没有一一的去实现。我觉着这些只要了解了他们具体的工作实现方法，剩下的只需要我们在要用到时再去查看手册就可以了（真的有点懒，关于这一点我也想有个过来人帮我提提建议）。</p>
-<p>1.我觉着Jquery最重要的是去选取元素，我现在总结一下一些选择器的使用吧<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(*)                    //通配符选择器</span><br><span class="line">$(<span class="string">"#id"</span>)                //id选择器</span><br><span class="line">$(<span class="string">".class"</span>)             //class选择器</span><br><span class="line">$(<span class="string">"p"</span>)                  //选取p元素</span><br><span class="line">$(<span class="string">"p.intro"</span>)            //选取class等于intro的p元素</span><br><span class="line">$(<span class="string">"p#demo"</span>)             //选取所有 id=<span class="string">"demo"</span> 的 &lt;p&gt; 元素。</span><br><span class="line">$(<span class="string">"[href]"</span>)             //选取所有带有 href 属性的元素。</span><br><span class="line">$(<span class="string">"[href='#']"</span>)         //选取所有带有 href 值等于 <span class="string">"#"</span> 的元素。</span><br><span class="line">$(<span class="string">"[href!='#']"</span>)        //选取所有带有 href 值不等于 <span class="string">"#"</span> 的元素。</span><br><span class="line">$(<span class="string">"[href$='.jpg']"</span>)     //选取所有 href 值以 <span class="string">".jpg"</span> 结尾的元素。</span><br><span class="line">$(<span class="string">"p"</span>).css(<span class="string">"background-color"</span>,<span class="string">"red"</span>);  //css选择器</span><br></pre></td></tr></table></figure></p>
-<p>2.对了，jQuery中不仅可以敲击按钮，任何被选定的度可以被点击，并响应事件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  $(<span class="string">"p"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  $(<span class="string">"p"</span>).hide(1000);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>引入上面这段1代码，就可以实现敲击”p”的内容让其隐藏<br>上面代码的意思就是选取p元素，让其相应click事件，当点击后隐藏p元素的内容。<br>至于其他的事件的应用可以去jQuery手册查看，我就不一一列举了<br>3.还有层级选择器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"ancestor descendant"</span>)     //祖先后代选择器</span><br><span class="line">$(<span class="string">"parent&gt;child"</span>)            //父子选择器</span><br><span class="line">$(<span class="string">"prev+next"</span>)               //相邻元素选择器</span><br><span class="line">$(<span class="string">"prev+silings"</span>)            //兄弟选择器</span><br></pre></td></tr></table></figure></p>
-<p>4.这里演示一个浅入浅出的效果代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;jQuery 效果 - 淡入淡出&lt;/title&gt;</span><br><span class="line">    &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        div&#123;</span><br><span class="line">            width: 400px;</span><br><span class="line">            background-color: white;</span><br><span class="line">            border: 1px solid black;</span><br><span class="line">            text-align: center;</span><br><span class="line">            margin: 0px auto;</span><br><span class="line">        &#125;</span><br><span class="line">        .div1&#123;</span><br><span class="line">            height: 20px;</span><br><span class="line">            margin-top: 100px;</span><br><span class="line">			background-color:grey;</span><br><span class="line">        &#125;</span><br><span class="line">        .div2&#123;</span><br><span class="line">            height: 400px;</span><br><span class="line">			background-color:pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery-3.3.1.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        $(document).ready(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            $(<span class="string">".div1"</span>).click(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                $(<span class="string">".div2"</span>).fadeToggle(2000);//淡入淡出切换，Toggle重要就是切换作用，//（2000）定义了该动作完成时间为2秒</span><br><span class="line">            &#125;);</span><br><span class="line">            $(<span class="string">"button"</span>).click(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                $(<span class="string">".div2"</span>).stop();//停止动画</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;button class=<span class="string">"button1"</span> style=<span class="string">"margin-left: 500px"</span>&gt;停止&lt;/button&gt;</span><br><span class="line">&lt;div class=<span class="string">"div1"</span>&gt;点击这里，隐藏/显示面板&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"div2"</span>&gt;</span><br><span class="line">    &lt;p&gt;jQuery Fading 淡入淡出 方法&lt;/p&gt;</span><br><span class="line">    通过 jQuery，您可以实现元素的淡入淡出效果。</span><br><span class="line">    jQuery 拥有下面四种 fade 方法：</span><br><span class="line">    fadeIn()</span><br><span class="line">    fadeOut()</span><br><span class="line">    fadeToggle()</span><br><span class="line">    fadeTo()</span><br><span class="line">    &lt;p&gt;jQuery 滑动方法&lt;/p&gt;</span><br><span class="line">    通过 jQuery，您可以在元素上创建滑动效果。</span><br><span class="line">    jQuery 拥有以下滑动方法：</span><br><span class="line">    slideDown()</span><br><span class="line">    slideUp()</span><br><span class="line">    slideToggle()</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>5.动画animate效果<br>下面这段代码演示了使用动画的效果，并且我把其中的一些注意点也写入代码中间去<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;jQuery 效果 - 动画&lt;/title&gt;</span><br><span class="line">    &lt;style <span class="built_in">type</span>=<span class="string">"text/css"</span>&gt;</span><br><span class="line">        div&#123;</span><br><span class="line">            width: 50px;</span><br><span class="line">            height: 50px;</span><br><span class="line">            background-color: <span class="comment">#00FFFF;</span></span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"jquery-3.3.1.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(document).ready(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            $(<span class="string">"#start"</span>).click(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                var div = $(<span class="string">"div"</span>);           //迷惑   利用队列功能</span><br><span class="line">                div.animate(&#123;left:<span class="string">'300px'</span>, width:<span class="string">'200px'</span>,height:<span class="string">'200px'</span>&#125;,3000);</span><br><span class="line">                div.animate(&#123;fontSize:<span class="string">'3em'</span>, textAlign:<span class="string">"center"</span>&#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">            $(<span class="string">"#stop"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                $(<span class="string">"div"</span>).stop();</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            $(<span class="string">"#stop2"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                $(<span class="string">"div"</span>).stop(<span class="literal">true</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            $(<span class="string">"#stop3"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                $(<span class="string">"div"</span>).stop(<span class="literal">true</span>,<span class="literal">true</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;jQuery animate() - 使用队列功能&lt;br&gt;</span><br><span class="line">    默认地，jQuery 提供针对动画的队列功能。&lt;br&gt;</span><br><span class="line">    这意味着如果您在彼此之后编写多个 animate() 调用，jQuery 会创建包含这些方法调用的“内部”队列。然后逐一运行这些 animate 调用。&lt;br&gt;</span><br><span class="line">    jQuery stop() 方法&lt;br&gt;</span><br><span class="line">    jQuery stop() 方法用于停止动画或效果，在它们完成之前。&lt;br&gt;</span><br><span class="line">    stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。&lt;br&gt;</span><br><span class="line">    语法&lt;br&gt;</span><br><span class="line">    $(selector).stop(stopAll,goToEnd);&lt;br&gt;</span><br><span class="line">    可选的 stopAll 参数规定是否应该清除动画队列。默认是 <span class="literal">false</span>，即仅停止活动的动画，允许任何排入队列的动画向后执行。&lt;br&gt;</span><br><span class="line">    可选的 goToEnd 参数规定是否立即完成当前动画。默认是 <span class="literal">false</span>。&lt;br&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&lt;br&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;&lt;b&gt;<span class="string">"开始"</span>&lt;/b&gt; 按钮会启动动画。&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;<span class="string">"停止"</span>&lt;/b&gt; 按钮会停止当前活动的动画，但允许已排队的动画向前执行。&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;<span class="string">"停止所有"</span>&lt;/b&gt; 按钮停止当前活动的动画，并清空动画队列；因此元素上的所有动画都会停止。&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;<span class="string">"停止但要完成"</span>&lt;/b&gt; 会立即完成当前活动的动画，然后停下来。&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;button id=<span class="string">"start"</span>&gt;开始&lt;/button&gt;</span><br><span class="line">&lt;button id=<span class="string">"stop"</span>&gt;停止&lt;/button&gt;</span><br><span class="line">&lt;button id=<span class="string">"stop2"</span>&gt;停止所有&lt;/button&gt;</span><br><span class="line">&lt;button id=<span class="string">"stop3"</span>&gt;停止但要完成&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=<span class="string">"div1"</span>&gt;</span><br><span class="line">    jquery</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>6.还要注意这个jQuery的callback函数<br>Callback 函数在当前动画 100% 完成之后执行。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  $(<span class="string">"button"</span>).click(<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  $(<span class="string">"p"</span>).hide(1000,<span class="function"><span class="title">function</span></span>()&#123;//该函数在hide动作完成后即开始执行</span><br><span class="line">    alert(<span class="string">"The paragraph is now hidden"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
-<p>最后关于jQuery，我只是了解了一点皮毛，至于去真正掌握它，那就需要去多练多写了，然后在这同时去完整的了解它的手册离得全部内容。</p>
-<h1 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h1><p>bootstrap这个框架用起来比jQuery需要特别注意的地方有很多，每个特殊的效果都有自己的特殊的引用词，但他们其中还是有规律的，每种效果用的都是特定的那些东西<br>看了它的一些教程，也跟着敲了一些代码，尝试了一些效果，但还没有记住，如果要再次用到时还是要去找手册，这点的总结，等再用的多点了再写一下吧</p>
-<h1 id="下段时间的计划"><a href="#下段时间的计划" class="headerlink" title="下段时间的计划"></a>下段时间的计划</h1><p>1.昨天我正准备实际用一下这些天学到的东西，正在模仿写新浪的页面，准备接下来把这个页面写完，然后总结自己在这个过程中出现的问题，并是如何解决的。<br>2.借了JavaScript dom艺术编程这本书，接下来就学习这本书，把之前那些半知半解的知识点进一步的巩固<br><strong>归根到底就是一句话，复习复习再复习，不能像之前一样而遗漏了大多数的知识点。</strong></p>
 
       
     </div>
