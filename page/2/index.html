@@ -270,6 +270,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-剑指offer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/01/剑指offer/" class="article-date">
+      <time datetime="2018-11-01T14:53:42.000Z" itemprop="datePublished">2018-11-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/01/剑指offer/">剑指offer</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>好久没写了，自己也不知道做些什么！我也思考了很久，最珍贵的就是坚持，但是最难得的也就是坚持了。这个博客当时搭建好，由于派的任务，才写了几篇。现在也是感觉好迷茫，那天碰到一个找工作的学长，他说如果找工作就最好学习一点算法，现在正在自学Java，虽然也没什么进展，现在就借着这个博客，把剑指Offer的算法题做一遍，最少保证一周一题吧，然后同时也把Java学习着，等下学期再看要考研还是找工作。</strong></p>
+<h1 id="二维数组总的查找："><a href="#二维数组总的查找：" class="headerlink" title="二维数组总的查找："></a>二维数组总的查找：</h1><p>题目描述：在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p><strong>注意要点，数组长度的求法，用C++和Java两种语言的求法：</strong>java用array.length;C++可以用size(array)/size(array[0]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Java代码：</span><br><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean Find(int target, int [][] array) &#123;</span><br><span class="line">        if(array.length==0||array[0].length==0)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        int m=array.length-1;</span><br><span class="line">        int max=m;</span><br><span class="line">        int n=0;</span><br><span class="line">        int com = array[n][m];</span><br><span class="line">        while(target!=com)&#123;</span><br><span class="line">            if(n&lt;max&amp;&amp;m&gt;0)&#123;</span><br><span class="line">                if(target&gt;com)&#123;</span><br><span class="line">                    n++;</span><br><span class="line">                    com = array[n][m];</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    m--;</span><br><span class="line">                    com = array[n][m];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="替换空格"><a href="#替换空格" class="headerlink" title="替换空格"></a>替换空格</h1><p><strong>题目描述：</strong>实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。<br><strong>注意字符与字符串：</strong>“a”属于字符串，’a’属于字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">C++代码:</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	void replaceSpace(char *str,int length) &#123;</span><br><span class="line">         int i=0;</span><br><span class="line">        while(str[i]!=&apos;\0&apos;)</span><br><span class="line">        &#123;</span><br><span class="line">            if(str[i]==&apos; &apos;)</span><br><span class="line">            &#123;</span><br><span class="line">                for(int j=length-1;j&gt;i;j--)</span><br><span class="line">                &#123;</span><br><span class="line">                    str[j+2]=str[j];</span><br><span class="line">                &#125;</span><br><span class="line">                str[i+2]=&apos;0&apos;;</span><br><span class="line">                str[i+1]=&apos;2&apos;;</span><br><span class="line">                str[i]=&apos;%&apos;;</span><br><span class="line">                length+=2;</span><br><span class="line">                i=i+2;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>这两道题总体来说还是比较简单的，没有涉及算法，只是一些简单的逻辑问题，就是一题可以根据数组的分布规律来简化匹配target的过程，使复杂度降低。<br>自己的不足，还是对一些小细节处理不好，就是因为做题太少的原因吧，希望自己可以坚持做下去，哈哈，试试能坚持几天，自己等着看自己笑话</strong></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-关于webplus-pro的main-html的编写总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

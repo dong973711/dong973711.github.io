@@ -15,18 +15,24 @@
 
 
 
-<meta name="description" content="题目描述：输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。：这个题目要求负数用补码表示，我就很懵逼了，难道还要去判断正负数，然后负数求补码来运算吗。只能求助百度了，在网上找到了这题的三种解法，现在我来总结一下。 最优位操作:如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后">
+<meta name="description" content="自学了很久的java se基础，一直也没去尝试连接数据库，今天刚好在网上看到了一段JDBC的简介的，就照着大概连了一下数据库看看1.首先用MySQL创建了一个jdbc_db:2.然后建一个UserTbl表，并加入数据：3.接下来导入jDBC驱动，其实也就是导入JDBC的jar包，可以从这里下载jdbc的jar包下载4.解压后把这个jar包导入到eclipse中，既先先复制到eclipse中新建的l">
 <meta name="keywords" content="donghu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer5之位运算">
-<meta property="og:url" content="http://dong973711.github.io/2018/11/06/剑指Offer5之位运算/index.html">
+<meta property="og:title" content="JDBC的初次使用">
+<meta property="og:url" content="http://dong973711.github.io/2018/11/28/JDBC的初次使用/index.html">
 <meta property="og:site_name" content="一粒沙">
-<meta property="og:description" content="题目描述：输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。：这个题目要求负数用补码表示，我就很懵逼了，难道还要去判断正负数，然后负数求补码来运算吗。只能求助百度了，在网上找到了这题的三种解法，现在我来总结一下。 最优位操作:如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后">
+<meta property="og:description" content="自学了很久的java se基础，一直也没去尝试连接数据库，今天刚好在网上看到了一段JDBC的简介的，就照着大概连了一下数据库看看1.首先用MySQL创建了一个jdbc_db:2.然后建一个UserTbl表，并加入数据：3.接下来导入jDBC驱动，其实也就是导入JDBC的jar包，可以从这里下载jdbc的jar包下载4.解压后把这个jar包导入到eclipse中，既先先复制到eclipse中新建的l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-06T15:12:06.140Z">
+<meta property="og:image" content="http://dong973711.github.io/img/jdbc_db.png">
+<meta property="og:image" content="http://dong973711.github.io/img/jdbc_db_UserTbl.png">
+<meta property="og:image" content="http://dong973711.github.io/img/jdbcdaoru.png">
+<meta property="og:image" content="http://dong973711.github.io/img/Sqlsuccess.png">
+<meta property="og:image" content="http://dong973711.github.io/img/Caozuosuccess.png">
+<meta property="og:updated_time" content="2018-11-28T14:47:29.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer5之位运算">
-<meta name="twitter:description" content="题目描述：输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。：这个题目要求负数用补码表示，我就很懵逼了，难道还要去判断正负数，然后负数求补码来运算吗。只能求助百度了，在网上找到了这题的三种解法，现在我来总结一下。 最优位操作:如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后">
+<meta name="twitter:title" content="JDBC的初次使用">
+<meta name="twitter:description" content="自学了很久的java se基础，一直也没去尝试连接数据库，今天刚好在网上看到了一段JDBC的简介的，就照着大概连了一下数据库看看1.首先用MySQL创建了一个jdbc_db:2.然后建一个UserTbl表，并加入数据：3.接下来导入jDBC驱动，其实也就是导入JDBC的jar包，可以从这里下载jdbc的jar包下载4.解压后把这个jar包导入到eclipse中，既先先复制到eclipse中新建的l">
+<meta name="twitter:image" content="http://dong973711.github.io/img/jdbc_db.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +64,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>剑指Offer5之位运算 | 一粒沙</title>
+<title>JDBC的初次使用 | 一粒沙</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +273,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-剑指Offer5之位运算" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JDBC的初次使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/11/06/剑指Offer5之位运算/" class="article-date">
-      <time datetime="2018-11-06T14:35:55.000Z" itemprop="datePublished">2018-11-06</time>
+      <a href="/2018/11/28/JDBC的初次使用/" class="article-date">
+      <time datetime="2018-11-28T14:05:26.000Z" itemprop="datePublished">2018-11-28</time>
 </a>
 
 
@@ -286,7 +292,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer5之位运算
+      JDBC的初次使用
     </h1>
   
 
@@ -303,12 +309,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><strong>题目描述：</strong>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。<br><strong>：</strong>这个题目要求负数用补码表示，我就很懵逼了，难道还要去判断正负数，然后负数求补码来运算吗。只能求助百度了，在网上找到了这题的三种解法，现在我来总结一下。</p>
-<h5 id="最优位操作"><a href="#最优位操作" class="headerlink" title="最优位操作:"></a>最优位操作:</h5><p>如果一个整数不为0，那么这个整数至少有一位是1。如果我们把这个整数减1，那么原来处在整数最右边的1就会变为0，原来在1后面的所有的0都会变成1(如果最右边的1后面还有0的话)。其余所有位将不会受到影响。</p>
-<p>比如：一个二进制数1100，从右边数起第三位是处于最右边的一个1。减去1后，第三位变成0，它后面的两位0变成了1，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0。如1100&amp;1011=1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">     int  NumberOf1(int n) &#123;</span><br><span class="line">         int count=0;</span><br><span class="line">         if(n==0)&#123;</span><br><span class="line">             return 0;</span><br><span class="line">         &#125;else&#123;</span><br><span class="line">             while(n!=0)&#123;</span><br><span class="line">                 count++;</span><br><span class="line">                 n = (n-1)&amp;n;</span><br><span class="line">             &#125;</span><br><span class="line">             return count;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h5 id="位运算法："><a href="#位运算法：" class="headerlink" title="位运算法："></a>位运算法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">把数字当成二进制样式，依次判断其最后一位是否为一（判断一次，右移一位）</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int NumberOf1(int n)&#123;</span><br><span class="line">        int count = 0;</span><br><span class="line">        int flag = 1;</span><br><span class="line">        while(flag != 0)&#123;</span><br><span class="line">            if((n &amp; flag))&#123;</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">            flag = flag &lt;&lt; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="模除法："><a href="#模除法：" class="headerlink" title="模除法："></a>模除法：</h5><p>模除法就是常规做法，通过我们平时把十进制转化为二进制的方法，依次判断每一位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	int NumberOf1(unsigned int n)&#123;</span><br><span class="line">    int number = 0;   //数 1 的个数</span><br><span class="line"></span><br><span class="line">        while(n != 0)&#123;</span><br><span class="line">            if(n % 2 == 1)&#123;</span><br><span class="line">                number ++;</span><br><span class="line">            &#125;</span><br><span class="line">            n = n / 2;</span><br><span class="line">        &#125;</span><br><span class="line">    	return number;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义"><a href="#问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义" class="headerlink" title="问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义"></a>问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义</h2><p><strong>补码(two’s complement) 1、在计算机系统中，数值一律用补码来表示（存储）。 主要原因：使用补码，可以将符号位和其它位统一处理；同时，减法也可按加法来处理。另外，两个用补 码表示的数相加时，如果最高位（符号位）有进位，则进位被舍弃。 2、补码与原码的转换过程几乎是相同的。</strong></p>
+        <p><strong>自学了很久的java se基础，一直也没去尝试连接数据库，今天刚好在网上看到了一段JDBC的简介的，就照着大概连了一下数据库看看</strong><br>1.首先用<strong>MySQL</strong>创建了一个<strong>jdbc_db</strong>:<br><img src="/img/jdbc_db.png" alt="jdbc_db"><br>2.然后建一个UserTbl表，并加入数据：<br><img src="/img/jdbc_db_UserTbl.png" alt="UserTbl表"><br>3.接下来导入jDBC驱动，其实也就是导入JDBC的jar包，可以从这里下载<a href="https://dev.mysql.com/downloads/connector/j/" target="_blank" rel="noopener">jdbc的jar包下载</a><br>4.解压后把这个jar包导入到eclipse中，既先先复制到eclipse中新建的lib文件夹下，然后选中右击Bulid Path<br><img src="/img/jdbcdaoru.png" alt=""><br>5.首先创建一个连接数据库的工具类<br>6.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package com.cumt.JDBC;</span><br><span class="line"></span><br><span class="line">import java.sql.DriverManager;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line"></span><br><span class="line">import com.mysql.jdbc.Connection;</span><br><span class="line"></span><br><span class="line">public class DBUtil &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		DBUtil util = new DBUtil();</span><br><span class="line">		Connection conn = util.getConnection();</span><br><span class="line">		System.out.println(conn);</span><br><span class="line">	&#125;</span><br><span class="line">	public Connection getConnection() &#123;</span><br><span class="line">    //连接数据库的操作</span><br><span class="line">		try &#123;</span><br><span class="line">			Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span><br><span class="line">			return (Connection) DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/jdbc_db&quot;, &quot;root&quot;, &quot;自己数据库的密码&quot;);</span><br><span class="line">		&#125; catch (ClassNotFoundException | SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line">	public void closeConnection(Connection conn) &#123;</span><br><span class="line">    //关闭数据库的操作</span><br><span class="line">		if(conn!=null) &#123;</span><br><span class="line">			try &#123;</span><br><span class="line">				System.out.println(&quot;数据库要关闭了&quot;);</span><br><span class="line">				conn.close();</span><br><span class="line">			&#125; catch (SQLException e) &#123;</span><br><span class="line">				// TODO Auto-generated catch block</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/Sqlsuccess.png" alt="连接成功"><br>7.然后新建一个测试操作类Tester:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package com.cumt.JDBC;</span><br><span class="line"></span><br><span class="line">import java.sql.ResultSet;</span><br><span class="line">import java.sql.SQLException;</span><br><span class="line">import java.sql.Statement;</span><br><span class="line"></span><br><span class="line">import com.mysql.jdbc.Connection;</span><br><span class="line"></span><br><span class="line">public class Tester &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Tester test = new Tester();</span><br><span class="line">		test.list();</span><br><span class="line">		DBUtil util = new DBUtil();</span><br><span class="line">		Connection conn = util.getConnection();</span><br><span class="line">		util.closeConnection(conn);</span><br><span class="line">	&#125;</span><br><span class="line">	public void list() &#123;</span><br><span class="line">    //操作数据库，把数据库内容导出到eclipse</span><br><span class="line">		DBUtil util = new DBUtil();</span><br><span class="line">		Connection conn = util.getConnection();</span><br><span class="line">		String sql = &quot;select id,username,password from UserTbl&quot;;</span><br><span class="line">		try &#123;</span><br><span class="line">			Statement stmt = conn.createStatement();</span><br><span class="line">			ResultSet rs = stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">			while(rs.next()) &#123;</span><br><span class="line">				int id = rs.getInt(&quot;id&quot;);</span><br><span class="line">				String username = rs.getString(&quot;username&quot;);</span><br><span class="line">				String password = rs.getString(&quot;password&quot;);</span><br><span class="line">				System.out.println(&quot;id&quot;+id+&quot;---&gt;&quot;+&quot;username&quot;+&quot;---&gt;&quot;+username+&quot;---&gt;&quot;+&quot;password&quot;+&quot;---&gt;&quot;+password);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; catch (SQLException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/Caozuosuccess.png" alt="操作成功截图"></p>
 
       
     </div>
@@ -320,16 +323,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/11/07/剑指Offer6之代码的完整性/">
-                    剑指Offer6之代码的完整性
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/11/05/剑指Offerr4之递归和循环/">
-                    剑指Offerr4之递归和循环
+                <a href="/2018/11/26/剑指Offer10之时间效率2/">
+                    剑指Offer10之时间效率2
                 </a>
             </div>
         
@@ -341,7 +338,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#最优位操作"><span class="toc-number">1.</span> <span class="toc-text">最优位操作:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#位运算法："><span class="toc-number">2.</span> <span class="toc-text">位运算法：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模除法："><span class="toc-number">3.</span> <span class="toc-text">模除法：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义"><span class="toc-number"></span> <span class="toc-text">问题：这求解过程中始终没有出现对负数的特别讨论。还是对补码理解不透彻，仅仅是停留在会求的层面，需要去深层次理解其意义</span></a>
+            
         
     </div>
     <style>
@@ -377,7 +374,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"剑指Offer5之位运算　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"JDBC的初次使用　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -413,15 +410,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/11/07/剑指Offer6之代码的完整性/" title="上一篇: 剑指Offer6之代码的完整性">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/11/05/剑指Offerr4之递归和循环/" title="下一篇: 剑指Offerr4之递归和循环">
+            <a href="/2018/11/26/剑指Offer10之时间效率2/" title="下一篇: 剑指Offer10之时间效率2">
                 <i class="fa fa-angle-right"></i>
             </a>
         
