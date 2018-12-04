@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="连续子数组的最大和题目描述：HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回">
+<meta name="description" content="丑数题目描述：把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。思路：刚开始想到的就只是简单的挨个计算，像这样。就是先通过将一个数不断除以2，3，5来判定该数是不是丑数，而后在从1开始，依次往后判断每个数是不是丑数，并记下丑数的个数，这样当计算的个数为给定值时，便是需">
 <meta name="keywords" content="donghu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer10之时间效率2">
-<meta property="og:url" content="http://dong973711.github.io/2018/11/26/剑指Offer10之时间效率2/index.html">
+<meta property="og:title" content="剑指Offer11之时间空间效率的平衡1">
+<meta property="og:url" content="http://dong973711.github.io/2018/12/04/剑指Offer11之时间空间效率的平衡1/index.html">
 <meta property="og:site_name" content="一粒沙">
-<meta property="og:description" content="连续子数组的最大和题目描述：HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回">
+<meta property="og:description" content="丑数题目描述：把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。思路：刚开始想到的就只是简单的挨个计算，像这样。就是先通过将一个数不断除以2，3，5来判定该数是不是丑数，而后在从1开始，依次往后判断每个数是不是丑数，并记下丑数的个数，这样当计算的个数为给定值时，便是需">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-26T15:15:47.627Z">
+<meta property="og:updated_time" content="2018-12-04T11:14:45.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer10之时间效率2">
-<meta name="twitter:description" content="连续子数组的最大和题目描述：HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回">
+<meta name="twitter:title" content="剑指Offer11之时间空间效率的平衡1">
+<meta name="twitter:description" content="丑数题目描述：把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。思路：刚开始想到的就只是简单的挨个计算，像这样。就是先通过将一个数不断除以2，3，5来判定该数是不是丑数，而后在从1开始，依次往后判断每个数是不是丑数，并记下丑数的个数，这样当计算的个数为给定值时，便是需">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>剑指Offer10之时间效率2 | 一粒沙</title>
+<title>剑指Offer11之时间空间效率的平衡1 | 一粒沙</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-剑指Offer10之时间效率2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-剑指Offer11之时间空间效率的平衡1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/11/26/剑指Offer10之时间效率2/" class="article-date">
-      <time datetime="2018-11-26T14:58:18.000Z" itemprop="datePublished">2018-11-26</time>
+      <a href="/2018/12/04/剑指Offer11之时间空间效率的平衡1/" class="article-date">
+      <time datetime="2018-12-04T10:46:29.000Z" itemprop="datePublished">2018-12-04</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      剑指Offer10之时间效率2
+      剑指Offer11之时间空间效率的平衡1
     </h1>
   
 
@@ -303,8 +303,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="连续子数组的最大和"><a href="#连续子数组的最大和" class="headerlink" title="连续子数组的最大和"></a>连续子数组的最大和</h1><p><strong>题目描述：</strong>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)<br><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int FindGreatestSumOfSubArray(vector&lt;int&gt; array) &#123;</span><br><span class="line">        int sum = array[0];</span><br><span class="line">        int max1 = array[0];</span><br><span class="line">        for(int i=1;i&lt;array.size();i++)&#123;</span><br><span class="line">            sum=max(array[i],array[i]+sum);</span><br><span class="line">            max1 = max(sum,max1);</span><br><span class="line">        &#125;</span><br><span class="line">        return max1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h1 id="整数中1出现的次数（从1到n整数中1出现的次数）"><a href="#整数中1出现的次数（从1到n整数中1出现的次数）" class="headerlink" title="整数中1出现的次数（从1到n整数中1出现的次数）"></a>整数中1出现的次数（从1到n整数中1出现的次数）</h1><p><strong>题目描述：</strong>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。<br><strong>代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int NumberOf1Between1AndN_Solution(int n)</span><br><span class="line">    &#123;</span><br><span class="line">        int count=0;//赋初值很重要啊啊啊啊</span><br><span class="line">        int chu=0,yu=0;</span><br><span class="line">        while(n)&#123;</span><br><span class="line">            chu=n;</span><br><span class="line">            while(chu/10!=0)&#123;</span><br><span class="line">                yu = chu%10;</span><br><span class="line">                if(yu == 1)&#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">                chu = chu/10;</span><br><span class="line">            &#125;</span><br><span class="line">            if(chu == 1)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="丑数"><a href="#丑数" class="headerlink" title="丑数"></a>丑数</h1><p><strong>题目描述：</strong>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。<br><strong>思路：</strong>刚开始想到的就只是简单的挨个计算，像这样。就是先通过将一个数不断除以2，3，5来判定该数是不是丑数，而后在从1开始，依次往后判断每个数是不是丑数，并记下丑数的个数，这样当计算的个数为给定值时，便是需要求的第n个丑数，这种方法的时间复杂度为O（k），这里的k为第n个丑数的大小。当这样计算时，如果要计算的比较大时，这样就会因为耗时而不能通过。<strong><em>换种想法</em></strong>，每一个丑数必然是由之前的某个丑数与2，3或5的乘积得到的，这样下一个丑数就用之前的丑数分别乘以2，3，5，找出这三这种最小的并且大于当前最大丑数的值，即为下一个要求的丑数。<br><strong>代码：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int GetUglyNumber_Solution(int index) &#123;</span><br><span class="line">       <span class="keyword">if</span> (index &lt;= 0)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">return</span> 0;</span><br><span class="line">        &#125;</span><br><span class="line">        int uglyNumbers[index];</span><br><span class="line">        uglyNumbers[0] = 1;</span><br><span class="line">        int nextUglyIndex = 1;</span><br><span class="line"></span><br><span class="line">        int multiply2 = 0;</span><br><span class="line">        int multiply3 = 0;</span><br><span class="line">        int multiply5 = 0;</span><br><span class="line">        int min = 0;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (nextUglyIndex &lt; index)</span><br><span class="line">        &#123;</span><br><span class="line">            min = Min(uglyNumbers[multiply2] * 2, uglyNumbers[multiply3] * 3, uglyNumbers[multiply5] * 5);</span><br><span class="line">            uglyNumbers[nextUglyIndex] = min;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (uglyNumbers[multiply2] * 2 &lt;= uglyNumbers[nextUglyIndex])</span><br><span class="line">            &#123;</span><br><span class="line">                multiply2++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (uglyNumbers[multiply3] * 3 &lt;= uglyNumbers[nextUglyIndex])</span><br><span class="line">            &#123;</span><br><span class="line">                multiply3++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (uglyNumbers[multiply5] * 5 &lt;= uglyNumbers[nextUglyIndex])</span><br><span class="line">            &#123;</span><br><span class="line">                multiply5++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            nextUglyIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">        int result = uglyNumbers[index - 1];</span><br><span class="line">        <span class="built_in">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    int Min(int num1, int num2, int num3)</span><br><span class="line">    &#123;</span><br><span class="line">        int min = num1 &lt; num2 ? num1 : num2;</span><br><span class="line">        min = min &lt; num3 ? min : num3;</span><br><span class="line">        <span class="built_in">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="第一个只出现一次的字符"><a href="#第一个只出现一次的字符" class="headerlink" title="第一个只出现一次的字符"></a>第一个只出现一次的字符</h1><p><strong>题目描述：</strong>在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）<br><strong>分析：</strong>到这我才发现，我的思想一致在被限制着，想到的就只是暴力去挨个循环查询记录，上一题也是一样，只能想到暴力解法。到网上看了一下，换种思路其实就很简单了。用一个map也就是键值对去存储记录出现过的字符，然后挨个看这些字符出现的次数，知道第一个只出现一次的并返回位置，否则返回-1；<br><strong>代码：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int FirstNotRepeatingChar(string str) &#123;</span><br><span class="line">        map&lt;char,int&gt; biaoji;</span><br><span class="line">        int len = str.size();</span><br><span class="line">        <span class="keyword">for</span>(char x:str) biaoji[x]++;     //用于记录某个字符出现的次数</span><br><span class="line">        <span class="keyword">for</span>(int i=0;i&lt;len;i++)&#123;			//然后挨个找出只出现一次的这个字符，并返回它的位置</span><br><span class="line">            <span class="keyword">if</span>(biaoji[str[i]] == 1)&#123;</span><br><span class="line">                <span class="built_in">return</span> i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> -1;						//没找到则返回-1；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -316,16 +316,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/11/28/JDBC的初次使用/">
-                    JDBC的初次使用
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/11/25/剑指Offer9之字符串的排列和把数组排成最小数/">
-                    剑指Offer9之字符串的排列和把数组排成最小数
+                <a href="/2018/11/28/JDBC的初次使用/">
+                    JDBC的初次使用
                 </a>
             </div>
         
@@ -337,7 +331,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#连续子数组的最大和"><span class="toc-number">1.</span> <span class="toc-text">连续子数组的最大和</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#整数中1出现的次数（从1到n整数中1出现的次数）"><span class="toc-number">2.</span> <span class="toc-text">整数中1出现的次数（从1到n整数中1出现的次数）</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#丑数"><span class="toc-number">1.</span> <span class="toc-text">丑数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一个只出现一次的字符"><span class="toc-number">2.</span> <span class="toc-text">第一个只出现一次的字符</span></a></li></ol>
         
     </div>
     <style>
@@ -373,7 +367,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"剑指Offer10之时间效率2　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"剑指Offer11之时间空间效率的平衡1　| 一粒沙　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -409,15 +403,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/11/28/JDBC的初次使用/" title="上一篇: JDBC的初次使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/11/25/剑指Offer9之字符串的排列和把数组排成最小数/" title="下一篇: 剑指Offer9之字符串的排列和把数组排成最小数">
+            <a href="/2018/11/28/JDBC的初次使用/" title="下一篇: JDBC的初次使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
