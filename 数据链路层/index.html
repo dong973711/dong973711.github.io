@@ -1,0 +1,768 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://dong973711.github.io/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>数据链路层 - D-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="D-notes" class="md-header__button md-logo" aria-label="D-notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            D-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数据链路层
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="D-notes" class="md-nav__button md-logo" aria-label="D-notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    D-notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          计算机网络
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="计算机网络" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          计算机网络
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" class="md-nav__link">
+        概述
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%89%A9%E7%90%86%E5%B1%82/" class="md-nav__link">
+        物理层
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        数据链路层
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p><meta name="referrer" content="never"></p>
+<h1>本主要内容：</h1>
+<ul>
+<li>数据链路层的<strong>点对点信道</strong>和<strong>广播信道</strong>的特点，以及这两种信道所使用的协议（<strong>PPP协议</strong>以及<strong>CSMA/CD</strong>协议）的特点。</li>
+<li>数据链路层的三个基本问题：<strong>封装成帧、透明传输、和差错检测</strong>。</li>
+<li><strong>以太网MAC层的硬件地址</strong>。</li>
+<li><strong>适配器、转发器、集线器、网桥、以太网交换机</strong>的作用及使用场合。</li>
+</ul>
+<h1>一、使用点对点信道的数据链路层：</h1>
+<h2>1、数据链路和帧</h2>
+<p>链路是一个物理链路；数据链路是一个逻辑链路，是<strong>物理链路加上必要的通信协议</strong>。</p>
+<p><strong>帧，</strong>点对点信道的数据链路层的协议数据单元。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501164352175-1883123506.png" alt="" width="644" height="424" /></p>
+<p><strong>点对点信道的数据链路层在进行通信时的主要步骤如下</strong>：</p>
+<ul>
+<li>结点A的数据链路层把网络层交下来的IP数据报添加首部和尾部封装成帧</li>
+<li>结点A把封装好的帧发送给结点B的数据链路层</li>
+<li>若结点B的数据链路层收到的帧无差错，则从收到的帧中取出IP数据报交给上面的网络层；否则丢弃这个数据。</li>
+</ul>
+<p>数据链路层不必考虑物理层如何实现比特传输的细节（因此我们可以简单的设想为两个数据链路层之间的水平方向把帧直接发送给对方）</p>
+<h2>2、三个基本问题</h2>
+<h3>1）封装成帧</h3>
+<p>封装成帧就是<strong>一段数据的前后分别添加首部和尾部</strong>，这样就构成了帧。接受端在收到物理层上交的比特流之后，就能根据首部和尾部的标记，从收到的比特流中识别识别的帧的开始和结束。<strong>首部和尾部也就是一个帧的界限。</strong></p>
+<p><strong>最大传送单元MTU：</strong>数据部分长度上限</p>
+<p><strong>所有在互联网上传送的数据都市以分组（即IP数据报）为传送单位</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501172029858-1606960579.png" alt="" width="439" height="203" /></p>
+<h3>2）透明传输</h3>
+<p>不会在一个数据帧的中间出现和帧结束符一样的字符，这样不管什么数据都可放在这样的帧中传输过去，不会出现数传输错误或丢失，这样的传输就是透明传输。（也就是说是<strong>错误的找到帧边界</strong>）</p>
+<p><strong>为了解决透明传输：</strong>发送端的数据链路层在出现控制字符"SOH"或"EOT"的<strong>前面插入一个转义字符</strong>"ESC"（十六进制编码1B，二进制是00011011）。而在接受端的数据链路层在把数据送往网络层之前删除这个插入的转义字符。（字节填充或字符填充）</p>
+<h3><strong>3）差错检测</strong></h3>
+<p>比特差错、误码率BER</p>
+<p>循环冗余检验CRC(一种检错方法)、FCS是添加在数据后面的冗余码。</p>
+<p><strong>循环冗余检验的原理：</strong>在发送端把数据划分为组，假定每组K个比特，现加假定传输数据M=101001(k=6)。CRC运算就是在M后面添加用于检错的n为冗余码，然后构成一个帧一起发出去，一共发送k+n位。</p>
+<p><strong>n位冗余码的得到方法：（二进制模2运算）。</strong>事先规定n+1位的除数P，得到商Q余数R。现假定M=101001，P=1101(n=3)，用M模2运算除P得到商Q=110101，余数R=001，这个余数R就作为冗余码拼接在数据M的后面发送出去。这种为了检错而进行添加的冗余码常称为<strong>帧检验序列FCS</strong>。因此加上FCS后发送的帧是101001001(共k+n位)。</p>
+<p><strong>在接收端把接收到的数据以帧为单位进行CRC检验：</strong>把收到的帧都除以同样的除数P（模2运算），然后检查得到的余数R。若余数R为0，则这个帧么有出错，接受；否则就有差错，丢弃。</p>
+<p>用模2运算进行加法时不进位，例如1111+1010=0101。减法和加法一样，按加法规则计算。</p>
+<p>&nbsp;</p>
+<p><strong>例：循环冗余码计算过程</strong>P=11001，M=10110011，n=4，k=8。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501195415903-334642139.png" alt="" width="603" height="321" /></p>
+<p>余数0100则为R，作为FCS，发送的数据应为10110011 0100</p>
+<p>&nbsp;</p>
+<h1>二、点对点协议PPP：</h1>
+<h2>1、PPP协议的特点</h2>
+<p><strong>简单、封装成帧、透明性、多种网络层协议</strong>（同一条物理链路上同时支持多种网络层协议）、<strong>多种类型链路、差错检测、检测连接状态、最大传送单元、网络层地址协商、数据压缩协商。</strong></p>
+<p>PPP协议<strong>不需要进行检错，不需要设置序号、也不需要进行流量控制</strong>；PPP协议<strong>不支持多点线路</strong>，只<strong>支持点对点的链路通信</strong>。PPP协议<strong>只支持全双工链路。</strong></p>
+<p><strong>PPP协议的组成：</strong>一个将IP数据封装到串行链路的方法；一个用来建立、配置和测试数据链路的链路控制协议LCP；一套网络控制协议NCP（其中每个协议支持不同分网络层协议）；</p>
+<h2>2、ppp协议的帧格式</h2>
+<h4>各字段意义：</h4>
+<p>PPP帧的首部和尾部分别为四个字段和两个字段。</p>
+<p><strong>首部：</strong></p>
+<p>首部中的标志字段F(Flag)，规定为0x7E(符号0x表示它后面的字符是用十六进制表示的。十六进制的7E的二进制表示是01111110)，标志字段表示一个帧的开始。<br />首部中的地址字段A规定为0xFF(即11111111)。<br />首部中的控制字段C规定为0x03(即00000011)。<br /><strong>首部中的2字节的协议字段</strong>： <br />(1)当协议字段为0x0021时，PPP帧的信息字段就是IP数据报。 <br />(2)当协议字段为0xC021时，PPP帧的信息字段就是PPP链路控制协议LCP的数据。 <br />(3)当协议字段为0x8021时，PPP帧的信息字段就是网络层的控制数据。<br /><br /></p>
+<p><strong>信息字段</strong>长度时可变的，不超过1500字节。</p>
+<p><strong>尾部</strong>中的第一个字段（2字节）使用来CRC的帧检验序列FCS。</p>
+<p><strong>尾部</strong>中的标志字段F(Flag)，规定为0x7E(符号0x表示它后面的字符是用十六进制表示的。十六进制的7E的二进制表示是01111110)，标志字段表示一个帧的结束。</p>
+<h2><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501201105124-378257929.png" alt="" /></h2>
+<h4>字节填充（PPP使用异步传输时）：</h4>
+<p>当信息字段出现标志字段一样的比特（0x7E）组合时。</p>
+<p>当PPP使用异步传输时，它把转义字符定义为0x7D，并用字节填充，<strong>填充方法如下：</strong></p>
+<ul>
+<li>把信息字段中的0x7E转化为2字节序列（0x7D,0x5E)</li>
+<li>把信息字段中的0x7D转化为2字节序列（0x7D,0x5D)</li>
+<li>当信息字段中出现ASCII码的控制字符（数值小于0x20的字符），则在该字符前面要加入一个0x7D字节，同时把该字符编码加以改变。例如：0x03就要把它转变为2字节序列（0x7D,0x23)</li>
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<h4>零比特填充（PPP使用同步传输时）：</h4>
+<p>零比特填充的具体方法： <br />(1)在发送端先扫描整个信息字段(通常使用硬件实现，但也可以用软件实现，但是会慢一些)。 <br />(2)只要发现有5个连续的1，则立即填入一个0。 <br />(3)接收端在收到一个帧时，先找到标志字段F以确定帧的边界，接着再用硬件对其中的比特流进行扫描，每当发现5个连续1时，就把5个连续1后的一个0删除，以还原成原来的信息比特流。<br />因此通过这种零比特填充后的数据，就可以保证在信息字段中不会出现连续6个1</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501203038012-76453336.png" alt="" /></p>
+<h3>3、PPP协议的工作状态：</h3>
+<p><strong>1）、PPP协议的工作流程：</strong></p>
+<ul>
+<li>当用户拨号接入ISP后，就建立了一条从用户PC机到ISP的物理连接。</li>
+<li>这时用户PC机向ISP发送一系列的LCP分组(封装成多个PPP帧)，以便建立LCP连接。</li>
+<li>这些分组及其响应选择了将要使用的一些PPP参数。</li>
+<li>接着还要进行网络层配置，NCP给新接入的用户PC机分配一个临时的IP地址。</li>
+<li>这样，用户PC机就成为因特网上的一个有IP地址的主机了。</li>
+<li>当用户通信完毕时，NCP释放网络层连接，收回原来分配出去的IP地址。</li>
+<li>接着，LCP释放数据链路层连接。</li>
+<li>最后释放的是物理层的连接。</li>
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190501203713150-327888992.png" alt="" width="591" height="395" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p id="2-ppp协议的lcp连接"><strong>2）、 PPP协议的LCP连接</strong></p>
+<p id="3-ppp协议的ncp连接"><strong>3）、 PPP协议的NCP连接</strong></p>
+<h1>&nbsp;三、使用广播信道的数据数据链路层</h1>
+<h2>1、局域网的数据链路层</h2>
+<p><strong>适配器：</strong></p>
+<p>计算机与外界局域网的连接是通过通信适配器进行的，适配器本来是在主机箱内插入的一块网络接口板（网络接口卡 或 网卡）。</p>
+<p>这种通信适配器上装有处理器和存储器（包括RAM和ROM）</p>
+<p>功能：进行数据串行传输和并行传输的转换；对数据进行缓冲；实现以太网协议。</p>
+<p>当适配器收到有差错的帧时，就把这个帧丢弃，不必通知计算机；当适配器收到正确的帧时，就把由协议把IP数据报向下交给适配器，组装成帧后发送到局域网。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190511150318837-1018518581.png" alt="" width="547" height="339" /></p>
+<h2>2、CSMA/CD协议</h2>
+<h3>2.1总线的特点：</h3>
+<p><strong>总线特点</strong>：当一台计算机发送数据时，总线上所有的计算机都能监测到这个数据。这种就是<strong>广播通信方式</strong>。</p>
+<p><strong>在总线上进行一对一通信</strong>：可以使每台计算机的适配器拥有一个与其他适配器不同的地址，发送数据帧时，在帧的首部写明接受站的地址。<strong>仅当数据帧中的目的地址与适配器ROM中存放的硬件地址一致时</strong>，该适配器才能接收这个数据帧，适配器对不是发送给自己的数据帧就丢弃。</p>
+<h3>2.2以太网采取以下两种措施实现方便通信：</h3>
+<p><strong>1）采用较为灵活的无连接的工作方式，即不必先建立连接就可以直接发送数据</strong></p>
+<ul>
+<li>适配器对发送的数据帧不进行编号，也不要求对方发回确认。这样做的理由是局域网的信道质量很好，因通信质量不好产生差错的概率很小的。</li>
+<li>因此，以太网提供的服务是<strong>不可靠的交付</strong>，即<strong>尽最大努力的交付。</strong></li>
+<li>当目的站收到有差错的数据帧时（例如，通过CRC查出有差错），就把帧丢弃，其他什么也不做。</li>
+<li>对有差错的帧是否需要重传则由高层来决定。例如，如果高层使用TCP协议，那么TCP就会发现丢失了一些数据。于是经过一段时间后，TCP就把这些数据重新传递给以太网进行重传。但以太网并不知道这是重传帧，而是当做新的数据帧来发送。</li>
+
+
+
+
+
+
+
+
+</ul>
+<p><strong>2）以太网发送的数据都使用曼切斯特编码的信号</strong></p>
+<ul>
+<li>曼切斯特编码的编码方法就是把每一个码元再分成两个相等的间隔。</li>
+<li>码元1是在前一个间隔为低电压而后一个间隔为高电压，而码元0则相反。这样就保证了每一个码元的正中间出现一次电压的转换，而接收端就利用这种电压的转换很方便地把位同步信号提取出来。</li>
+<li>曼切斯特编码的缺点，是它所占的频带宽度比原始的基带信号增加了一倍。</li>
+
+
+
+
+
+
+
+
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190511152202373-1123663745.png" alt="" /></p>
+<h3 id="3-csmacd协议用于协调总线上各计算机的工作">2.3 CSMA/CD协议，用于协调总线上各计算机的工作</h3>
+<p>注：总线上只要有一台计算机在发送数据，总线的传输资源就被占用。因此，在同一时间只能允许一台计算机发送信息，否则各计算机之间就会互相干扰，结果大家都无法正常发送数据。</p>
+<p>以太网<strong>用于协调总线上各计算机的工作的方法</strong>，就是使用一种特殊的协议CSMA/CD，它是<strong>载波监听多点接入/碰撞检测(Carrier Sense Multiple Access with Collision Detection)的缩写。</strong></p>
+<ul>
+<li><strong>多点接入</strong>：说明这是总线型网络，许多计算机以多点接入的方式接入在一根总线上。协议的实质是&ldquo;载波监听&rdquo;和&ldquo;碰撞检测&rdquo;。</li>
+<li><strong>载波监听</strong>：就是发送前先监听，即每一个站在发送数据之前先要检测一下总线上是否有其他站在发送数据，如果有，则暂时不要发送数据，要等到信道变为空闲时再发送。</li>
+<li><strong>碰撞检测</strong>：就是边发送边监听，即适配器边发送数据边检测信道上的信号电压的变化情况，以便判断自己在发送数据时其他站是否也在发送数据。当几个站同时在总线上发送数据时，总线上的信号电压变化幅度将会增大（相互叠加）。当适配器检测到的信号电压变化幅度超过一定阀值时，就认为总线上至少有两个站在同时发送数据，表明产生了碰撞。一旦发现总线上发生了碰撞，适配器就要立即停止发送，免得继续浪费网络资源，然后等待一段随机时间后再次发送。</li>
+
+
+
+
+
+
+
+</ul>
+<p>使用CSMA/CD协议的以太网不可能进行全双工通信而只能进行<strong>半双工通信。</strong></p>
+<p><strong>强化碰撞：</strong>一旦发生碰撞，除了立即停止发送数据外，还要继续发送32比特或48比特的人为干扰信号，以便让所有用户都知道现在已经发生了碰撞。</p>
+<p>&nbsp;</p>
+<p><strong>要点归纳：</strong></p>
+<ul>
+<li><strong>准备发送：</strong>适配器从网络层获得一个分组，加上以太网的首部和尾部，组成以太网帧，加入适配器的缓存。但在发送前，必须先检测信道。</li>
+<li><strong>信道检测：</strong>若检测到信道忙，则不停的检测，一直等待信道转为空闲。若检测到信道空闲，并在96比特时间内信道保持空闲（保证了帧间最小间隔），就发送这个帧。</li>
+
+
+
+
+
+
+
+在发送过程中不断得检测信道，即网络适配器要边发送边监听，这里有两种可能：
+<ul>
+<li>发送成功：在争用期内一直未检测到碰撞。这个帧肯定能发送成功。发送完后什么也不做。然后继续准备发送。</li>
+<li>发送失败：在争用期内检测到碰撞。这时立即停止发送数据，并规定发送人为干扰信号。适配器接着就执行指数退避算法。等待 r 倍的512 比特时间后，返回到步骤&nbsp; 信道检测。若重传达16次&middot;仍不成功，则停止重传而向上报错。</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</ul>
+<p>以太网每发送完以帧，一定要把已发送的帧暂时保留一下。如果在争用期内检测到发生了碰撞，那么还要在推迟一段时间后再把这个保留的帧重传一次。</p>
+<p>&nbsp;</p>
+<p>在局域网分析中，常把总线上的单程端到端传输时延记为 t&nbsp; ，因此最迟要进行 2t&nbsp; 才能知道自己发送的数据和其他站发送给的数据有没有发生碰撞。</p>
+<p>把这个 2t 称为<strong>争用期</strong>，也叫<strong>碰撞窗口</strong>，若在争用期这段时间内还没有发送碰撞，才能肯定这次发送不会发生碰撞，这时，就可以把这一帧数据顺利发送完毕。</p>
+<h2>3、使用集线器的星型拓扑结构</h2>
+<h3>集线器的一些特点：</h3>
+<ul>
+<li>使用集线器的以太网在逻辑上仍是一个总线网，各站共享逻辑上的总线，使用的化石CSMA/CD协议。网络中各站必须竞争对传输媒体的控制，并且在同一刻之多只允许一个站发送数据。</li>
+<li>一个集线器有许多接口，例如8至16个，用两对双绞线与一台计算机上的适配器相连。一因此，一个集线器很像一个多接口的转发器。</li>
+<li>集线器工作在物理层，它的每个接口仅仅简单的转发比特，不进行碰撞检测。</li>
+<li>集线器采用了专门的芯片，进行自适应串音回波抵消。</li>
+
+
+
+
+
+
+
+</ul>
+<h2>4、以太网的信道利用率</h2>
+<p><strong>争用期 2t&nbsp; &nbsp; &nbsp;发送帧需要的时间是&nbsp; &nbsp;T0&nbsp; ，它等于帧长除以发送速率。</strong></p>
+<p>应注意，成功发送一个帧需要占用信道的时间是&nbsp; &nbsp;T0 + t&nbsp; &nbsp;,这个帧的发送时间要多一个端到端时延 t ，这是因为当一个站发送完最后一个比特时，这个比特还要在以太网上传播。因此必须经过&nbsp; T0+t&nbsp; 后以太网的媒体才可以完全进入空闲状态，才能允许其他站发送数据。</p>
+<p><strong>以太网参数&nbsp; a&nbsp;</strong> &nbsp;是以太网单程端到端时延 t 与帧发送时间 T0 之比。</p>
+<p>参数a越大说明争用期的比例越大，这就使每次碰撞浪费了不少的信道资源，使得信道利用率明显降低。因此 a 的值应适当小一些。</p>
+<p><strong>信道极限利用率 Smax = T0/(T0+t) = 1/(1+a)</strong>。&nbsp; 只有a 远小于1才能得到尽可能高的仅限信道利用率。</p>
+<h2>5、以太网的MAC层</h2>
+<h3>MAC层的硬件地址</h3>
+<ul>
+<li>在局域网中，硬件地址又称为物理地址或MAC地址。用于标识系统(identification system)。IEEE802标准为局域网规定了一种48位的全球地址，是指<strong>局域网上的每一台计算机中固化在适配器的ROM中的地址。</strong></li>
+<li>在<strong>生产适配器时，</strong>这种6字节(即48位)的<strong>MAC地址已被固化在适配器的ROM中</strong>。因此，MAC地址也叫作硬件地址(hardware address)或物理地址。</li>
+<li><strong>MAC地址实质是就是适配器地址或适配器标识符EUI-48</strong>。当这块适配器被插入或嵌入到一台计算机后，适配器上的标识符EUI-48就成为这台计算机的MAC地址了。</li>
+<li>当路由器通过适配器连接到局域网时，适配器上的硬件地址就用来标志路由器的某个接口。路由器如果同时连接到两个网络上，那么它就需要两个适配器和两个硬件地址。</li>
+<li>适配器有过滤功能，适配器从网络上每收到一个MAC帧就先用硬件检测MAC中的目的地址。如果是发往本站的帧就收下，然后再进行其他处理。否则就将此帧丢弃，不再进行其他处理。这里，发往本站的帧包括以下三种帧：</li>
+<ul>
+<li>(1)单播帧(一对一)：即收到的帧的MAC地址与本站的硬件地址相同。</li>
+<li>(2)广播帧(一对全体)：即发送给本局域网上所有站点的帧(全1地址)。</li>
+<li>(3)多播帧(一对多)：即发送给本局域网上一部分站点的帧。</li>
+<li>注：所有的适配器都至少应当能够识别前两种帧，即能够识别单播和广播地址。</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</ul>
+<h3>MAC帧格式，通常有两种</h3>
+<p id="321-dix-ethernet-v2标准即以太网v2标准使用得最多"><strong>DIX Ethernet V2标准(即以太网V2标准，使用得最多)</strong></p>
+<ul>
+<li>假定网络层使用的是IP协议，实际上使用其他是协议也是可以的。</li>
+<li>以太网的MAC帧比较简单，由五个字段组成。</li>
+<li>前两个字段分别为6字节长的<strong>目的地址和源地址字段</strong>。</li>
+<li>第三个字段为2字节长的类型字段，用来<strong>标志上一层使用的是什么协议</strong>，以便把收到的MAC帧的数据上交给上一层的这个协议。
+<ul>
+<li>(1)当类型字段的值为0x0800时，就表示上一层使用的是IP数据报。&nbsp;</li>
+<li>(2)当类型字段的值为0x8137时，就表示该帧是由Novell IPX发过来的。</li>
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+</li>
+<li>第四个字段是<strong>数据字段</strong>，其长度在<strong>46到1500字节之间</strong>(46字节是这样得出的，<strong>最小长度64字节</strong>减去<strong>18字节的首部和尾部</strong>就得出数据字段的最小长度)。</li>
+<li>第五个字段是4字节的<strong>帧检验序列FCS(使用CRC检验)</strong>， </li>
+
+
+
+
+
+
+
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190511164553192-308647517.png" alt="" width="636" height="299" /></p>
+<p id="322-ieee8023-标准"><strong>&nbsp;IEEE802.3 标准</strong></p>
+<p><strong>IEEE802.3 标准规定的MAC帧格式与V2规定的MAC帧格式的主要区别：</strong> <br />(1)IEEE802.3 标准规定的MAC帧的第三个字段是&ldquo;长度/类型&rdquo;。当这个字段值大于0x0600(相当于十进制的1536)，就表示类型，这样就与以太网V2的MAC帧完全一样。当这个字段值小于0x0600(相当于十进制的1536)，就表示长度，即MAC帧的数据部分长度。 <br />(2)当&ldquo;长度/类型&rdquo;字段的值小于0x0600(相当于十进制的1536)时，数据字段必须装入上面的LLC子层的LLC帧。</p>
+<h1>四、拓展的以太网</h1>
+<h2>1、在物理层拓展以太网</h2>
+<ul>
+<li>以太网上的主机之间的距离不能太远(例如，10BASE-T以太网的两主机之间的距离不超过200米)，否则主机发送的信号经过铜线的传输就会衰减到使CSMA/CD协议无法正常使用。</li>
+<li>过去，广泛使用粗缆或细缆以太网时，常使用工作在物理层的转发器来扩展以太网的地理覆盖范围。</li>
+<li>现在，双绞线以太网成为以太网的主流类型，扩展主机和集线器之间的距离的一种简单方法就是使用光纤(通常是一对光纤)和一对光纤调制解调器。</li>
+<li>光纤调制解调器的作用，是进行电信号和光信号的转换。</li>
+
+
+
+
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190526165324155-380821435.png" alt="" /></p>
+<p>&nbsp;</p>
+<h2>2、在数据链路层拓展以太网</h2>
+<p>在数据链路层拓展以太网最初使用的<strong>网桥。</strong></p>
+<p><strong>网桥对收到的帧根据其MAC帧的目的地址进行转发和过渡</strong>。（当网桥收到一个帧时，并不是向所有的节后会转发此帧，而是根据此帧的目的MAC地址，查找网桥中的地址表，然后确定将该帧发送至哪个接口，或者将它丢弃（即过滤）。）</p>
+<p>&nbsp;</p>
+<p><strong>例：网桥的工作原理：是通过内部的接口管理软件和网桥协议实体来完成以下操作的</strong>。 <br />(1)若网桥从接口1收到A发给E的帧，则在查找转发表后，把这个帧送到接口2转发到另一个网段，使E能够收到这个帧。 <br />(2)若网桥从接口1收到A发给B的帧，就丢弃这个帧，因为转发表指出，转发给B的帧应当从接口1中转发出去，而现在正是从接口1收到这个帧，这说明B和A处在同一个网段上，B能够直接收到这个帧而不需要借助网桥的转发</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190526170151501-1408229320.png" alt="" width="651" height="340" /></p>
+<h3>以太网交换机的特点</h3>
+<p>以太网交换机实际上就是一个<strong>多接口的网桥</strong>。每个接口都直接与一个单台主机或另一个以太网交换机相连。</p>
+<p>一般都工作在<strong>全双工方式</strong>。</p>
+<p>具有<strong>并行性</strong>，即一个接口同时连接多对接口，使多对主机能同时通信（而网桥只能一次分析和转发一个帧）。</p>
+<p>相互通信的主机都是<strong>独占传输媒体，无碰撞地传输数据</strong>。</p>
+<p><strong>以太网交换机的接口还有存储器</strong>，能在传输端口繁忙时把到来的帧进行缓存。</p>
+<p>即插即用设备，其内部的<strong>帧交换表（地址表）是通过自学习算法自动逐渐建立起来的</strong>。</p>
+<p>（性能远超普通集线器，而且价格不贵，这就使工作在物理层的集线器逐渐地退出了市场）</p>
+<h3>以太网交换机的自学习能力</h3>
+<p>就是通过自学习建立帧交换表（也就是MAC地址表）</p>
+<p>在使用以太网交换机组网时，往往会增加一些冗余的链路，在这种情况下，自学习的过程就可能导致以太网帧在网络的某个环路中无限制的兜圈子。为了解决兜圈子问题，就出现了<strong>生成树协议STR(</strong>在不改变网络的实际拓扑结构，但在逻辑上切断某些链路，是的一台主机到所有其他主机的路径是无环路的树状结构，从而消除兜圈子现象<strong>)</strong></p>
+<h2>3、虚拟局域网VLAN</h2>
+<p><strong>虚拟局域网：</strong>由一些局域网网段构成的与物理位置无关的逻辑组，而这些网段具有某些共同的需求。每一个VLAN的帧都有一个明确的标识，指明发送这个帧的计算机术语哪一个VALN。（只是局域网给用户提供的一种服务，而并不是一种新型局域网。）</p>
+<p>虚拟局域网限制了接受广播信息的计算机数。</p>
+<p>以太网帧格式中插入一个四字节的标识符，称为<strong>VLAN标记</strong>，用来<strong>指明发送该帧的计算机属于哪一个虚拟局域网。</strong>插入VLAN标记的帧称为802.1Q帧</p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190526174053140-320627884.png" alt="" /></p>
+<p>&nbsp;</p>
+<h1>五、高速以太网</h1>
+<h2>1 100BASE-T 以太网&mdash;&mdash;快速以太网</h2>
+<ul>
+<li>100BASE-T是在双绞线上传送100Mb/s基带信号的星形拓扑以太网。</li>
+<li>仍使用IEEE802.3的CSMA/CD协议。</li>
+<li>它又称为快速以太网(Fast Ethernet)。</li>
+<li>用户只需更换一张适配器，再配上一个100Mb/s的集线器，就可很方便地由10BASE-T以太网直接升级到100BASE-T，而不需要改变网络的拓扑结构。</li>
+
+</ul>
+<h2>2 吉比特以太网&mdash;&mdash;千兆以太网</h2>
+<ul>
+<li>吉比特以太网又称为千兆以太网。</li>
+<li>吉比特以太网可用作现有网络的主干网，也可在高带宽(即高速率)的应用场合中用来连接工作站和服务器。</li>
+<li>吉比特以太网的物理层使用以下两种成熟的技术：</li>
+<ul>
+<li>来自现有的以太网。</li>
+<li>ANSI制定的光纤通道FC(Fibre Channel)。</li>
+
+</ul>
+<li>吉比特以太网的标准IEEE802.3z有以下几个特点：
+<ul>
+<li>允许在1Gb/s下全双工和半双工两种工作方式。</li>
+<li>使用IEEE802.3协议规定的帧格式</li>
+<li>在半双工方式下使用CSMA/CD协议，而在全双工方式下不需要使用CSMA/CD协议。</li>
+<li>与10BASE-T和100BASE-T技术向后兼容。</li>
+
+</ul>
+
+</li>
+
+</ul>
+<p>&nbsp;</p>
+<h2>3 10吉比特以太网&mdash;&mdash;万兆以太网</h2>
+<ul>
+<li>10吉比特以太网又称为万兆以太网。</li>
+<li>10GE并非将吉比特以太网的速率简单地提高到10倍。</li>
+<li>由于10GE的出现，以太网的工作范围已经从局域网扩大到城域网和广域网，从而实现了端到端的以太网传输。这种工作方式的好处是：
+<ul>
+<li>以太网是一种经过实践证明的成熟技术，无论是因特网服务提供者ISP还是端用户都很愿意使用以太网。&nbsp;</li>
+<li>以太网的互操作性也很好，不同厂商生产的以太网都能可靠地进行互操作</li>
+<li>在广域网中使用以太网时，其价格大约只有SONET的五分之一和ATM的十分之一，以太网还能够适应多种的传输媒体，如铜缆、双绞线和各种光缆，这就使具有不同传输媒体的用户在通信时不需重新布线。&nbsp;</li>
+<li>端到端的以太网连接使帧的格式全都是以太网的格式，而不需要再进行帧格式的转换，这就简化了操作和管理。</li>
+
+</ul>
+
+</li>
+<li>10吉比特以太网的物理层使用以下两种新开发的技术：(1)局域网物理层 LAN PHY。&nbsp;<em id="__mceDel">(2)可选的广域网物理层 WAN PHY。</em></li>
+<li>10吉比特以太网的特点：&nbsp;(1)10GE的帧格式与10Mb/s、100Mb/s和1Gb/s以太网的帧格式完全相同。&nbsp;(2)由于传输速率高，10GE不再使用铜线而只使用光纤作为传输媒体。&nbsp;(3)10GE只工作在全双工方式，因此不存在争用问题，也不使用CSMA/CD协议。</li>
+
+</ul>
+<p><strong>注：以太网从10Mb/s到10Gb/s的演进证明了以太网是：</strong> <br />(1)可扩展的(从10Mb/s到10Gb/s)。 <br />(2)灵活的(多种媒体、全/半双工、共享/交换)。 <br />(3)易于安装。 <br />(4)稳健性好。<em id="__mceDel"><em id="__mceDel"><em id="__mceDel"><em id="__mceDel"><em id="__mceDel"><br /></em></em></em></em></em></p>
+<h3 id="2-使用高速以太网进行宽带接入">使用高速以太网进行宽带接入</h3>
+<p><strong>高速以太网接入的重要特点</strong>：是它可以提供双向的宽带通信；且可以根据用户对带宽的需求灵活地进行带宽的升级；可以实现端到端的以太网传输，中间不需要再进行帧格式的转换，提高了数据的传输效率且降低了传输的成本</p>
+<p><strong>例：</strong>高速以太网接入可以采用多种方式，其中一种方式&mdash;&mdash;<strong>光纤到大楼FTTB：</strong><br />(1)每个大楼的楼口都安装一个100Mb/s的以太网交换机(对通信量不大的楼房也可以使用10Mb/s的以太网交换机)。 <br />(2)然后根据情况在每一楼层安装一个10Mb/s或100Mb/s的以太网交换机。 <br />(3)各大楼的以太网交换机通过光纤汇接到光结点汇接点。 <br />(4)若干个光结点汇接点再通过吉比特以太网汇接到一个高速汇接点(称为GigaPoP)。 <br />(5)然后通过城域网连接到因特网的主干网。<em id="__mceDel"><br /></em></p>
+<p><img src="https://img2018.cnblogs.com/blog/1648300/201905/1648300-20190526175512921-624744904.png" alt="" /></p>
+<p>&nbsp;</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../%E7%89%A9%E7%90%86%E5%B1%82/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 物理层" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              物理层
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../about/" class="md-footer__link md-footer__link--next" aria-label="下一页: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>
